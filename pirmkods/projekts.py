@@ -590,7 +590,7 @@ class Mājas: #izveidota klase mājas
             MIN_ENEMY_ĀTRUMS = 15
             MAX_ENEMY_ĀTRUMS=45
 
-            NEEDED_SCORE = 2000
+            NEEDED_SCORE = 2500
 
             a.delete('all')
             self.poga1.destroy()
@@ -624,7 +624,7 @@ class Mājas: #izveidota klase mājas
             MIN_ENEMY_ĀTRUMS = 35
             MAX_ENEMY_ĀTRUMS=55
 
-            NEEDED_SCORE = 4000
+            NEEDED_SCORE = 2000
 
             a.delete('all')
             self.poga1.destroy()
@@ -665,7 +665,7 @@ class Mājas: #izveidota klase mājas
             self.poga4.destroy()
             self.poga5.destroy()
 
-            NEEDED_SCORE = 5000
+            NEEDED_SCORE = 4000
 
             fona_bilde = PhotoImage(file = 'pirmkods/fons5.png')
 
@@ -711,7 +711,7 @@ class Mājas: #izveidota klase mājas
         if level == 4:
             if LIVES == 2 and time>20:
                 self.level4_stars = 3
-            elif LIVES >= 4:
+            elif LIVES >= 1:
                 self.level4_stars = 2
             elif LIVES > 0 and time>0:
                 self.level4_stars=1
