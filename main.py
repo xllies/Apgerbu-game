@@ -1,4 +1,5 @@
 from tkinter import *
+import random
 
 GARUMS = 558
 PLATUMS = 864
@@ -18,17 +19,83 @@ baloon3 = PhotoImage(file = 'pictures/baloon-beach.png')
 baloon4 = PhotoImage(file = 'pictures/baloon-party.png')
 baloon5 = PhotoImage(file = 'pictures/baloon-buizness.png')
 
+
+# MAN ON CLOTHES---------------------------------------------------
+
+
 class Game:
-    def __init__(self, bg_start, button_start, bg_choose, baloon1, baloon2, baloon3, baloon4, baloon5):
+    def __init__(self):
+        button_start = PhotoImage(file = 'pictures/start-button.png')
+        bg_start = PhotoImage(file = 'pictures/home-bg.png')
+        bg_choose = PhotoImage(file = 'pictures/choose-lvl.png')
+        bg_gender = PhotoImage(file = 'pictures/gender-bg.png')
+
+        poga_woman = PhotoImage(file = 'pictures/poga-woman.png')
+        poga_man = PhotoImage(file = 'pictures/poga-man.png')
+        poga_rand = PhotoImage(file = 'pictures/poga-rand.png')
+
+        baloon1 = PhotoImage(file = 'pictures/baloon-wedding.png')
+        baloon2 = PhotoImage(file = 'pictures/baloon-school.png')
+        baloon3 = PhotoImage(file = 'pictures/baloon-beach.png')
+        baloon4 = PhotoImage(file = 'pictures/baloon-party.png')
+        baloon5 = PhotoImage(file = 'pictures/baloon-buizness.png')
+
+        on_man_top1 = PhotoImage(file = 'pictures/man-clothes/top1.png')
+        on_man_top2 = PhotoImage(file = 'pictures/man-clothes/top2.png')
+        on_man_top3 = PhotoImage(file = 'pictures/man-clothes/top3.png')
+        on_man_top4 = PhotoImage(file = 'pictures/man-clothes/top4.png')
+        on_man_top5 = PhotoImage(file = 'pictures/man-clothes/top5.png')
+
+        on_man_bot1 = PhotoImage(file = 'pictures/man-clothes/bot1.png')
+        on_man_bot2 = PhotoImage(file = 'pictures/man-clothes/bot2.png')
+        on_man_bot3 = PhotoImage(file = 'pictures/man-clothes/bot3.png')
+        on_man_bot4 = PhotoImage(file = 'pictures/man-clothes/bot4.png')
+        on_man_bot5 = PhotoImage(file = 'pictures/man-clothes/bot5.png')
+
+        on_man_socks1 = PhotoImage(file = 'pictures/man-clothes/socks1.png')
+        on_man_socks2 = PhotoImage(file = 'pictures/man-clothes/socks2.png')
+
+        on_man_pair1 = PhotoImage(file = 'pictures/man-clothes/pair1.png')
+        on_man_pair2 = PhotoImage(file = 'pictures/man-clothes/pair2.png')
+        on_man_pair3 = PhotoImage(file = 'pictures/man-clothes/pair3.png')
+        on_man_pair4 = PhotoImage(file = 'pictures/man-clothes/pair4.png')
+
+
         self.bg_start = bg_start
         self.button_start = button_start
         self.bg_choose = bg_choose
+        self.bg_gender = bg_gender
+
+        self.poga_woman = poga_woman
+        self.poga_man = poga_man
+        self.poga_rand = poga_rand
 
         self.baloon1 = baloon1
         self.baloon2 = baloon2
         self.baloon3 = baloon3
         self.baloon4 = baloon4
         self.baloon5 = baloon5
+
+
+        self.on_man_top1 = on_man_top1
+        self.on_man_top2 = on_man_top2
+        self.on_man_top3 = on_man_top3
+        self.on_man_top4 = on_man_top4
+        self.on_man_top5 = on_man_top5
+
+        self.on_man_bot1 = on_man_bot1
+        self.on_man_bot2 = on_man_bot2
+        self.on_man_bot3 = on_man_bot3
+        self.on_man_bot4 = on_man_bot4
+        self.on_man_bot5 = on_man_bot5
+
+        self.on_man_socks1 = on_man_socks1
+        self.on_man_socks2 = on_man_socks2
+
+        self.on_man_pair1 = on_man_pair1
+        self.on_man_pair2 = on_man_pair2
+        self.on_man_pair3 = on_man_pair3
+        self.on_man_pair4 = on_man_pair4
 
         Game.open_all(self)
 
@@ -42,23 +109,23 @@ class Game:
         c.delete('all')
         self.start_poga.destroy()
 
-        self.baloon_btn1 = Button(c,image=self.baloon1, command=lambda:Game.gender(self),background='#79C9F9', activebackground='#79C9F9', bd=0)
+        self.baloon_btn1 = Button(c,image=self.baloon1, command=lambda:Game.gender(self, 'wedding'),background='#79C9F9', activebackground='#79C9F9', bd=0)
         self.baloon_btn1.place(x=43,y=83)
-        self.baloon_btn2 = Button(c,image=self.baloon2, command=lambda:Game.gender(self),background='#79C9F9', activebackground='#79C9F9', bd=0)
+        self.baloon_btn2 = Button(c,image=self.baloon2, command=lambda:Game.gender(self, 'school'),background='#79C9F9', activebackground='#79C9F9', bd=0)
         self.baloon_btn2.place(x=188,y=5)
-        self.baloon_btn3 = Button(c,image=self.baloon3, command=lambda:Game.gender(self),background='#79C9F9', activebackground='#79C9F9', bd=0)
+        self.baloon_btn3 = Button(c,image=self.baloon3, command=lambda:Game.gender(self, 'beach'),background='#79C9F9', activebackground='#79C9F9', bd=0)
         self.baloon_btn3.place(x=362,y=116)
-        self.baloon_btn4 = Button(c,image=self.baloon4, command=lambda:Game.gender(self),background='#79C9F9', activebackground='#79C9F9', bd=0)
+        self.baloon_btn4 = Button(c,image=self.baloon4, command=lambda:Game.gender(self, 'party'),background='#79C9F9', activebackground='#79C9F9', bd=0)
         self.baloon_btn4.place(x=533,y=14)
-        self.baloon_btn5 = Button(c,image=self.baloon5, command=lambda:Game.gender(self),background='#79C9F9', activebackground='#79C9F9', bd=0)
+        self.baloon_btn5 = Button(c,image=self.baloon5, command=lambda:Game.gender(self, 'buisness'),background='#79C9F9', activebackground='#79C9F9', bd=0)
         self.baloon_btn5.place(x=688,y=116)
 
-
+        
         self.fons = c.create_image(432,279, image = self.bg_choose)
 
 
 
-    def gender(self):
+    def gender(self, theme):
         c.delete('all')
         self.baloon_btn1.destroy()
         self.baloon_btn2.destroy()
@@ -66,19 +133,34 @@ class Game:
         self.baloon_btn4.destroy()
         self.baloon_btn5.destroy()
 
-        woman = Button(c, text="woman", command=lambda: Game.level_start(self, 'woman'))
-        woman.place(x=100,y=100)
+        self.theme = theme
 
-        man = Button(c, text="man", command=lambda: Game.level_start(self, 'man'))
-        man.place(x=300,y=100)
+        self.fons = c.create_image(432,279, image = self.bg_gender)
+
+        self.poga1 = Button(c,image=self.poga_woman, command=lambda:Game.level_start(self, 0),background='#7FAD71', activebackground='#7FAD71', bd=0)
+        self.poga1.place(x=65,y=475)
+
+        self.poga2 = Button(c,image=self.poga_man, command=lambda:Game.level_start(self, 1),background='#7FAD71', activebackground='#7FAD71', bd=0)
+        self.poga2.place(x=338,y=475)
+
+        self.poga3 = Button(c,image=self.poga_rand, command=lambda:Game.level_start(self, random.randint(0,1)),background='#7FAD71', activebackground='#7FAD71', bd=0)
+        self.poga3.place(x=600,y=475)
 
 
+    def level_start(self, gender):
+        self.poga1.destroy()
+        self.poga2.destroy()
+        self.poga3.destroy()
 
-    def level_start():
-        pass
+        if self.theme == 'wedding':
+            print('kaazs')
+        elif self.theme == 'smt':
+            pass
+
+        print(gender)
 
     
 
-Game(home_fons, start_btn, chose_fons, baloon1, baloon2, baloon3, baloon4, baloon5)
+Game()
 
 mainloop()
