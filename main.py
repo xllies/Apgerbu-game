@@ -9,16 +9,6 @@ logs.title('Ko vilkt?')
 c = Canvas(logs, width=PLATUMS, height=GARUMS, bg='#4b6fa6') 
 c.pack()
 
-start_btn = PhotoImage(file = 'pictures/start-button.png')
-home_fons = PhotoImage(file = 'pictures/home-bg.png')
-chose_fons = PhotoImage(file = 'pictures/choose-lvl.png')
-
-baloon1 = PhotoImage(file = 'pictures/baloon-wedding.png')
-baloon2 = PhotoImage(file = 'pictures/baloon-school.png')
-baloon3 = PhotoImage(file = 'pictures/baloon-beach.png')
-baloon4 = PhotoImage(file = 'pictures/baloon-party.png')
-baloon5 = PhotoImage(file = 'pictures/baloon-buizness.png')
-
 
 # MAN ON CLOTHES---------------------------------------------------
 
@@ -29,6 +19,11 @@ class Game:
         bg_start = PhotoImage(file = 'pictures/home-bg.png')
         bg_choose = PhotoImage(file = 'pictures/choose-lvl.png')
         bg_gender = PhotoImage(file = 'pictures/gender-bg.png')
+        bg_wedding = PhotoImage(file = 'pictures/wedding-bg.png')
+        bg_school = PhotoImage(file = 'pictures/bg_school.png')
+        bg_beach = PhotoImage(file = 'pictures/beach-bg.png')
+        bg_party = PhotoImage(file = 'pictures/party-bg.png')
+        bg_buizness = PhotoImage(file = 'pictures/wedding-bg.png')
 
         poga_woman = PhotoImage(file = 'pictures/poga-woman.png')
         poga_man = PhotoImage(file = 'pictures/poga-man.png')
@@ -65,6 +60,11 @@ class Game:
         self.button_start = button_start
         self.bg_choose = bg_choose
         self.bg_gender = bg_gender
+        self.bg_wedding = bg_wedding
+        self.bg_school = bg_school
+        self.bg_beach = bg_beach
+        self.bg_party = bg_party
+        self.bg_buizness = bg_buizness
 
         self.poga_woman = poga_woman
         self.poga_man = poga_man
@@ -153,6 +153,8 @@ class Game:
         self.poga3.destroy()
 
         if self.theme == 'wedding':
+            button_start = PhotoImage(file = 'pictures/wedding-bg.png')
+            self.fons = c.create_image(432,279, image = button_start)
             print('kaazs')
         elif self.theme == 'smt':
             pass
