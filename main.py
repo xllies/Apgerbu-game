@@ -340,9 +340,9 @@ class Game:
             top2 = c.create_image(560, 147, image = self.man_top2, tags='top')
             top3 = c.create_image(692, 157, image = self.man_top3, tags='top')
 
-            bot1 = c.create_image(446, 400, image = self.man_bot1, tags='drebe')
-            bot2 = c.create_image(574, 375, image = self.man_bot2, tags='drebe')
-            bot3 = c.create_image(706, 362, image = self.man_bot3, tags='drebe')
+            bot1 = c.create_image(443, 400, image = self.man_bot1, tags='bot')
+            bot2 = c.create_image(574, 375, image = self.man_bot2, tags='bot')
+            bot3 = c.create_image(706, 362, image = self.man_bot3, tags='bot')
 
             pair1 = c.create_image(460, 510, image = self.man_pair1, tags='drebe')
             pair2 = c.create_image(542, 505, image = self.man_pair2, tags='drebe')
@@ -358,21 +358,37 @@ class Game:
 
         c.tag_bind('drebe', '<Button-1>', Game.tryy)
 
-        c.tag_bind(bulta1, '<Button-1>', lambda:Game.bultaa(self, 1))
-        c.tag_bind(bulta2, '<Button-1>', lambda:Game.bultaa(self, 2))
+        c.tag_bind(bulta1, '<Button-1>', lambda xx :Game.bultaa(self, 1))
+        c.tag_bind(bulta2, '<Button-1>', lambda x:Game.bultaa(self, 2))
+
+        c.tag_bind(top1, '<Button-1>', lambda a :Game.tryy(self, 1))
 
     def bultaa(self, pakaramais):
         if self.gender == 'man':
             if pakaramais == 1:
                 if self.stage1 == 'first':
+                    c.delete('top')
                     top4 = c.create_image(427, 157, image = self.man_top4, tags='top')
-                    top5 = c.create_image(686, 161, image = self.man_top5, tags='top')
+                    top5 = c.create_image(557, 161, image = self.man_top5, tags='top')
                     self.stage1 = 'second'
                 else:
                     c.delete('top')
                     top1 = c.create_image(425, 137, image = self.man_top1, tags='top')
                     top2 = c.create_image(560, 147, image = self.man_top2, tags='top')
                     top3 = c.create_image(692, 157, image = self.man_top3, tags='top')
+                    self.stage1 = 'first'
+            if pakaramais == 2:
+                if self.stage1 == 'first':
+                    c.delete('bot')
+                    bot4 = c.create_image(445, 383, image = self.man_bot4, tags='bot')
+                    bot5 = c.create_image(579, 395, image = self.man_bot5, tags='bot')
+                    bot6 = c.create_image(702, 398, image = self.man_bot6, tags='bot')
+                    self.stage1 = 'second'
+                else:
+                    c.delete('bot')
+                    bot1 = c.create_image(446, 400, image = self.man_bot1, tags='bot')
+                    bot2 = c.create_image(574, 375, image = self.man_bot2, tags='bot')
+                    bot3 = c.create_image(706, 362, image = self.man_bot3, tags='bot')
                     self.stage1 = 'first'
 
 
