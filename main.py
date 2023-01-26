@@ -57,6 +57,7 @@ class Game:
         on_man_top3 = PhotoImage(file = 'pictures/man-clothes/top3.png')
         on_man_top4 = PhotoImage(file = 'pictures/man-clothes/top4.png')
         on_man_top5 = PhotoImage(file = 'pictures/man-clothes/top5.png')
+        on_man_top6 = PhotoImage(file = 'pictures/man-clothes/top6.png')
 
         on_man_bot1 = PhotoImage(file = 'pictures/man-clothes/bot1.png')
         on_man_bot2 = PhotoImage(file = 'pictures/man-clothes/bot2.png')
@@ -78,6 +79,7 @@ class Game:
         man_top3 = PhotoImage(file = 'pictures/man-rack-clothes/top3.png')
         man_top4 = PhotoImage(file = 'pictures/man-rack-clothes/top4.png')
         man_top5 = PhotoImage(file = 'pictures/man-rack-clothes/top5.png')
+        man_top6 = PhotoImage(file = 'pictures/man-rack-clothes/top6.png')
 
         man_bot1 = PhotoImage(file = 'pictures/man-rack-clothes/bot1.png')
         man_bot2 = PhotoImage(file = 'pictures/man-rack-clothes/bot2.png')
@@ -158,6 +160,7 @@ class Game:
         self.on_man_top3 = on_man_top3
         self.on_man_top4 = on_man_top4
         self.on_man_top5 = on_man_top5
+        self.on_man_top6 = on_man_top6
 
         self.on_man_bot1 = on_man_bot1
         self.on_man_bot2 = on_man_bot2
@@ -178,6 +181,7 @@ class Game:
                             on_man_top3,
                             on_man_top4,
                             on_man_top5,
+                            on_man_top6,
                             on_man_bot1,
                             on_man_bot2,
                             on_man_bot3,
@@ -195,6 +199,7 @@ class Game:
         self.man_top3 = man_top3
         self.man_top4 = man_top4
         self.man_top5 = man_top5
+        self.man_top6 = man_top6
 
         self.man_bot1 = man_bot1
         self.man_bot2 = man_bot2
