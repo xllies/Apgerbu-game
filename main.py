@@ -383,10 +383,10 @@ class Game:
         c.tag_bind(bulta1, '<Button-1>', lambda xx :Game.bultaa(self, 1))
         c.tag_bind(bulta2, '<Button-1>', lambda x:Game.bultaa(self, 2))
 
-        top_clothes=[1,2,3]
-        c.tag_bind(top1, '<Button-1>', lambda a :Game.tryy(self,'top', '1'))
-        c.tag_bind(top2, '<Button-1>', lambda a :Game.tryy(self,'top', '2'))
-        c.tag_bind(top3, '<Button-1>', lambda a :Game.tryy(self,'top', '3'))
+        top_clothes=[0,1,2]
+        c.tag_bind(top1, '<Button-1>', lambda a :Game.tryy(self,top_clothes[0]))
+        c.tag_bind(top2, '<Button-1>', lambda a :Game.tryy(self,top_clothes[1]))
+        c.tag_bind(top3, '<Button-1>', lambda a :Game.tryy(self,top_clothes[2]))
 
     def bultaa(self, pakaramais):
         if self.gender == 'man':
@@ -396,6 +396,7 @@ class Game:
                     top4 = c.create_image(427, 157, image = self.man_top4, tags='top')
                     top5 = c.create_image(557, 161, image = self.man_top5, tags='top')
                     top6 = c.create_image(688, 137, image = self.man_top6, tags='top')
+                    top_clothes=[3,4,5]
                     self.stage1 = 'second'
                 else:
                     c.delete('top')
@@ -421,12 +422,18 @@ class Game:
 
 
 
-    def tryy(self, place, count):
+    def tryy(self, pic):
 
         if self.gender=='man':
-            print('works')
-            bilde = 'on_man_'+place+count
-            on_top1 = c.create_image(100, 100, image = bilde, tags='on_top')
+            if pic == 0:
+                x=198
+                y=210
+                on_top1 = c.create_image(x, y, image = self.man_clothes[pic], tags='on_top')
+                
+            elif pic == 1:
+                pass
+
+            # on_top1 = c.create_image(100, 100, image = bilde, tags='on_top')
 
     
 
