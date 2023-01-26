@@ -358,7 +358,7 @@ class Game:
 
             accesorie3 = c.create_image(810, 240, image = self.man_accesorie3, tags='drebe')
 
-            top1 = c.create_image(425, 137, image = self.man_top1, tags='top')
+            top1 = c.create_image(425, 149, image = self.man_top1, tags='top')
             top2 = c.create_image(560, 147, image = self.man_top2, tags='top')
             top3 = c.create_image(692, 157, image = self.man_top3, tags='top')
 
@@ -395,10 +395,11 @@ class Game:
                     c.delete('top')
                     top4 = c.create_image(427, 157, image = self.man_top4, tags='top')
                     top5 = c.create_image(557, 161, image = self.man_top5, tags='top')
+                    top6 = c.create_image(688, 137, image = self.man_top6, tags='top')
                     self.stage1 = 'second'
                 else:
                     c.delete('top')
-                    top1 = c.create_image(425, 137, image = self.man_top1, tags='top')
+                    top1 = c.create_image(425, 149, image = self.man_top1, tags='top')
                     top2 = c.create_image(560, 147, image = self.man_top2, tags='top')
                     top3 = c.create_image(692, 157, image = self.man_top3, tags='top')
                     self.stage1 = 'first'
