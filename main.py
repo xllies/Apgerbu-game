@@ -192,7 +192,10 @@ class Game:
                             on_man_pair1,
                             on_man_pair2,
                             on_man_pair3,
-                            on_man_pair4]
+                            on_man_pair4,
+                            man_accesorie1,
+                            man_accesorie2,
+                            man_accesorie3]
 
         self.man_top1 = man_top1
         self.man_top2 = man_top2
@@ -354,11 +357,11 @@ class Game:
             
             
         if gender == 1:
-            c.create_image(175, 291, image = self.man)
+            c.create_image(196, 310, image = self.man)
 
             accesorie3 = c.create_image(810, 240, image = self.man_accesorie3, tags='drebe')
 
-            top1 = c.create_image(425, 149, image = self.man_top1, tags='top')
+            top1 = c.create_image(425, 150, image = self.man_top1, tags='top')
             top2 = c.create_image(560, 147, image = self.man_top2, tags='top')
             top3 = c.create_image(692, 157, image = self.man_top3, tags='top')
 
@@ -383,10 +386,29 @@ class Game:
         c.tag_bind(bulta1, '<Button-1>', lambda xx :Game.bultaa(self, 1))
         c.tag_bind(bulta2, '<Button-1>', lambda x:Game.bultaa(self, 2))
 
-        top_clothes=[0,1,2]
-        c.tag_bind(top1, '<Button-1>', lambda a :Game.tryy(self,top_clothes[0]))
-        c.tag_bind(top2, '<Button-1>', lambda a :Game.tryy(self,top_clothes[1]))
-        c.tag_bind(top3, '<Button-1>', lambda a :Game.tryy(self,top_clothes[2]))
+        self.top_clothes=[0,1,2]
+        c.tag_bind(top1, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[0]))
+        c.tag_bind(top2, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[1]))
+        c.tag_bind(top3, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[2]))
+
+
+        self.bot_clothes=[7,8,9]
+        c.tag_bind(bot1, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[0]))
+        c.tag_bind(bot2, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[1]))
+        c.tag_bind(bot3, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[2]))
+
+
+        self.socks_clothes=[10,11]
+        c.tag_bind(socks1, '<Button-1>', lambda a :Game.tryy(self,self.socks_clothes[0]))
+        c.tag_bind(socks2, '<Button-1>', lambda a :Game.tryy(self,self.socks_clothes[1]))
+
+        self.pair_clothes=[12,13,14,15]
+        c.tag_bind(pair1, '<Button-1>', lambda a :Game.tryy(self,self.pair_clothes[0]))
+        c.tag_bind(pair2, '<Button-1>', lambda a :Game.tryy(self,self.pair_clothes[1]))
+
+
+
+
 
 
     def bultaa(self, pakaramais):
@@ -397,14 +419,19 @@ class Game:
                     top1 = c.create_image(427, 157, image = self.man_top4, tags='top')
                     top2 = c.create_image(557, 161, image = self.man_top5, tags='top')
                     top3 = c.create_image(688, 137, image = self.man_top6, tags='top')
-                    top_clothes=[3,4,5]
+                    self.top_clothes=[3,4,5]
                     self.stage1 = 'second'
                 else:
                     c.delete('top')
                     top1 = c.create_image(425, 149, image = self.man_top1, tags='top')
                     top2 = c.create_image(560, 147, image = self.man_top2, tags='top')
                     top3 = c.create_image(692, 157, image = self.man_top3, tags='top')
+                    self.top_clothes=[0,1,2]
                     self.stage1 = 'first'
+                c.tag_bind(top1, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[0]))
+                c.tag_bind(top2, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[1]))
+                c.tag_bind(top3, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[2]))
+
             if pakaramais == 2:
                 if self.stage1 == 'first':
                     c.delete('bot')
@@ -417,6 +444,7 @@ class Game:
                     bot1 = c.create_image(443, 400, image = self.man_bot1, tags='bot')
                     bot2 = c.create_image(574, 375, image = self.man_bot2, tags='bot')
                     bot3 = c.create_image(706, 362, image = self.man_bot3, tags='bot')
+                    bot_clothes=[10,11,12]
                     self.stage1 = 'first'
 
 
@@ -425,21 +453,37 @@ class Game:
 
     def tryy(self, pic):
         print('works')
-
         if self.gender=='man':
             if pic == 0:
-                x=198
-                y=210                
+                x=192
+                y=218              
                 
             elif pic == 1:
-                x=198
-                y=210
+                x=191
+                y=218
 
             elif pic == 2:
+                x=192
+                y=220
+            elif pic == 3:
+                x=192
+                y=220
+            elif pic == 4:
                 pass
-            
+            elif pic == 5:
+                pass
+            elif pic == 6:
+                pass
+            elif pic == 7:
+                pass
+            elif pic == 8:
+                pass
+            elif pic == 9:
+                pass
+            else:
+                return None
+
             on_top1 = c.create_image(x, y, image = self.man_clothes[pic], tags='on_top')
-            # on_top1 = c.create_image(100, 100, image = bilde, tags='on_top')
 
     
 
