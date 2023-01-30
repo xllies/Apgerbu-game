@@ -199,12 +199,12 @@ class Game:
                             on_man_bot4,
                             on_man_bot5,
                             on_man_bot6,
-                            on_man_socks1,
-                            on_man_socks2,
                             on_man_pair1,
                             on_man_pair2,
                             on_man_pair3,
                             on_man_pair4,
+                            on_man_socks1,
+                            on_man_socks2,
                             man_accesorie1,
                             man_accesorie2,
                             man_accesorie3]
@@ -378,9 +378,12 @@ class Game:
 
             accesorie3 = c.create_image(810, 240, image = self.woman_accesorie3, tags='drebe')
 
-            top1 = c.create_image(440, 137, image = self.woman_top1, tags='drebe')
-            top2 = c.create_image(560, 153, image = self.woman_top2, tags='drebe')
-            top3 = c.create_image(692, 159, image = self.woman_top3, tags='drebe')
+            # top1 = c.create_image(432, 142, image = self.woman_top1, tags='drebe')
+            # top2 = c.create_image(560, 153, image = self.woman_top2, tags='drebe')
+            # top3 = c.create_image(692, 163, image = self.woman_top3, tags='drebe')
+            top4 = c.create_image(429, 162, image = self.woman_top4, tags='drebe')
+            top5 = c.create_image(560, 153, image = self.woman_top5, tags='drebe')
+            top6 = c.create_image(692, 189, image = self.woman_top6, tags='drebe')
 
             # bot1 = c.create_image(440, 137, image = self.woman_bot1, tags='drebe')
             # bot2 = c.create_image(560, 153, image = self.woman_bot2, tags='drebe')
@@ -450,13 +453,13 @@ class Game:
         c.tag_bind(self.bot5, '<Button-1>', lambda a :Game.tryy(self,10, self.bot5))
         c.tag_bind(self.bot6, '<Button-1>', lambda a :Game.tryy(self,11, self.bot6))
         
-        c.tag_bind(self.socks1, '<Button-1>', lambda a :Game.tryy(self,12, self.socks1))
-        c.tag_bind(self.socks2, '<Button-1>', lambda a :Game.tryy(self,13, self.socks2))
+        c.tag_bind(self.socks1, '<Button-1>', lambda a :Game.tryy(self,16, self.socks1))
+        c.tag_bind(self.socks2, '<Button-1>', lambda a :Game.tryy(self,17, self.socks2))
 
-        c.tag_bind(self.pair1, '<Button-1>', lambda a :Game.tryy(self,14, self.pair1))
-        c.tag_bind(self.pair2, '<Button-1>', lambda a :Game.tryy(self,15, self.pair2))
-        c.tag_bind(self.pair3, '<Button-1>', lambda a :Game.tryy(self,16, self.pair3))
-        c.tag_bind(self.pair4, '<Button-1>', lambda a :Game.tryy(self,17, self.pair4))
+        c.tag_bind(self.pair1, '<Button-1>', lambda a :Game.tryy(self,12, self.pair1))
+        c.tag_bind(self.pair2, '<Button-1>', lambda a :Game.tryy(self,13, self.pair2))
+        c.tag_bind(self.pair3, '<Button-1>', lambda a :Game.tryy(self,14, self.pair3))
+        c.tag_bind(self.pair4, '<Button-1>', lambda a :Game.tryy(self,15, self.pair4))
 
         c.tag_bind(self.accesorie1, '<Button-1>', lambda a :Game.tryy(self,18, self.accesorie1))
         c.tag_bind(self.accesorie2, '<Button-1>', lambda a :Game.tryy(self,19, self.accesorie2))
@@ -589,29 +592,30 @@ class Game:
                 y=380
                 x_start, y_start = 702, 398
             elif pic == 12:
-                x=186
-                y=497
-                x_start, y_start =815, 394
-            elif pic == 13:
-                x=185
-                y=503
-                x_start, y_start =813, 475
-            elif pic == 14:
                 x=188
                 y=524
                 x_start, y_start =460, 510
-            elif pic == 15:
+            elif pic == 13:
                 x=185
                 y=520
                 x_start, y_start =542, 505
-            elif pic == 16:
+            elif pic == 14:
                 x=185
                 y=517
                 x_start, y_start =625, 505
-            elif pic == 17:
+            elif pic == 15:
                 x=190
                 y=518
                 x_start, y_start =721, 505
+            elif pic == 16:
+                x=186
+                y=497
+                x_start, y_start =815, 394
+            elif pic == 17:
+                x=185
+                y=503
+                x_start, y_start =813, 475
+        
             elif pic == 18:
                 x=184 
                 y=66
@@ -630,7 +634,7 @@ class Game:
 
         if pic<=5:
             c.delete(self.last_top) #deletes last top outfit on
-            top_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])  #creates image on rack - after will be on human
+            top_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='tops')  #creates image on rack - after will be on human
             print(self.last_top_rack)
 
             if self.last_top_rack != None:
@@ -644,23 +648,31 @@ class Game:
             
         elif pic<=11:
             c.delete(self.last_bot) #deletes last bot outfit on
-            bot_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])  #creates image on rack - after will be on human
+            self.bot_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='bots')  #creates image on rack - after will be on human
             print(self.last_bot_rack)
 
             if self.last_bot_rack != None:
                 c.move(self.last_bot_rack, 800, 800) 
 
             c.move(name, -800, -800)
-            self.last_bot = bot_on
+            self.last_bot = self.bot_on
             self.last_bot_rack = name  #array to create image after put back
             print(self.last_bot_rack)
-            mover = bot_on #the image that has been placed will be moved on human
+            mover = self.bot_on #the image that has been placed will be moved on human
 
-
-
-        elif pic<=13:
+        elif pic<=15:
+            c.delete(self.last_pair)
+            self.pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='shoe')
+            if self.last_pair_rack != None:
+                c.move(self.last_pair_rack, 800, 800)
+            c.move(name, -800, -800)
+            self.last_pair = self.pair_on
+            self.last_pair_rack = name
+            print(self.last_pair_rack)
+            mover = self.pair_on
+        elif pic<=17:
             c.delete(self.last_sock)
-            sock_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
+            sock_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='sock')
           
             if self.last_sock_rack != None:
                 c.move(self.last_sock_rack, 800, 800) 
@@ -669,24 +681,14 @@ class Game:
             self.last_sock = sock_on
             self.last_sock_rack = name  #array to create image after put back
             print(self.last_sock_rack)
+            
             mover = sock_on #the image that has been placed will be moved on human
 
 
-        elif pic<=17:
-            c.delete(self.last_pair)
-            pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
-
-            if self.last_pair_rack != None:
-                c.move(self.last_pair_rack, 800, 800) 
-
-            c.move(name, -800, -800)
-            self.last_pair = pair_on
-            self.last_pair_rack = name
-            print(self.last_pair_rack)
-            mover = pair_on
+        
         elif pic <=20:
             c.delete(self.last_accesorie)
-            accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
+            accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='acc')
 
             if self.last_accesorie_rack != None:
                 c.move(self.last_accesorie_rack, 800, 800) 
@@ -700,12 +702,16 @@ class Game:
 
         xx = (x-x_start)/100
         yy = (y-y_start)/100
-        for i in range (100):  
+        for i in range (100):
+            
             x_start+=xx
             y_start+=yy
             c.move(mover,xx,yy)
             c.update()
-
+        c.tag_raise("shoe")
+        c.tag_raise("bots")
+        c.tag_raise("tops")
+        c.update()
 
 
             
