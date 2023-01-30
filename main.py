@@ -199,12 +199,12 @@ class Game:
                             on_man_bot4,
                             on_man_bot5,
                             on_man_bot6,
-                            on_man_socks1,
-                            on_man_socks2,
                             on_man_pair1,
                             on_man_pair2,
                             on_man_pair3,
                             on_man_pair4,
+                            on_man_socks1,
+                            on_man_socks2,
                             man_accesorie1,
                             man_accesorie2,
                             man_accesorie3]
@@ -365,13 +365,8 @@ class Game:
         c.create_image(574,298, image = self.pantshanger)
         c.create_image(705,298, image = self.pantshanger)
         
-<<<<<<< HEAD
         self.accesorie1 = c.create_image(808, 146, image = self.woman_accesorie1,tags='drebe')
         self.accesorie2 = c.create_image(806, 195, image = self.woman_accesorie2,tags='drebe')
-=======
-        accesorie1 = c.create_image(808, 146, image = self.woman_accesorie1,tags='drebe')
-        accesorie2 = c.create_image(806, 195, image = self.woman_accesorie2,tags='drebe')
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
 
         bulta1 = c.create_image(804, 94, image = self.bulta)
         bulta2 = c.create_image(804, 307, image = self.bulta)
@@ -383,13 +378,20 @@ class Game:
 
             accesorie3 = c.create_image(810, 240, image = self.woman_accesorie3, tags='drebe')
 
-            top1 = c.create_image(440, 137, image = self.woman_top1, tags='drebe')
+            top1 = c.create_image(432, 142, image = self.woman_top1, tags='drebe')
             top2 = c.create_image(560, 153, image = self.woman_top2, tags='drebe')
-            top3 = c.create_image(692, 159, image = self.woman_top3, tags='drebe')
+            top3 = c.create_image(692, 163, image = self.woman_top3, tags='drebe')
 
-            # bot1 = c.create_image(440, 137, image = self.woman_bot1, tags='drebe')
-            # bot2 = c.create_image(560, 153, image = self.woman_bot2, tags='drebe')
-            # bot3 = c.create_image(692, 159, image = self.woman_bot3, tags='drebe')
+            top4 = c.create_image(429, 162, image = self.woman_top4, tags='drebe')
+            top5 = c.create_image(560, 153, image = self.woman_top5, tags='drebe')
+            top6 = c.create_image(692, 189, image = self.woman_top6, tags='drebe')
+
+            c.move(self.top4, 1600, 1600)
+            c.move(self.top5, 1600, 1600)
+            c.move(self.top6, 1600, 1600)
+            bot1 = c.create_image(440, 137, image = self.woman_bot1, tags='drebe')
+            bot2 = c.create_image(560, 153, image = self.woman_bot2, tags='drebe')
+            bot3 = c.create_image(692, 159, image = self.woman_bot3, tags='drebe')
             
             
         if gender == 1:
@@ -440,16 +442,9 @@ class Game:
         c.tag_bind(bulta1, '<Button-1>', lambda xx :Game.bultaa(self, 1))
         c.tag_bind(bulta2, '<Button-1>', lambda x:Game.bultaa(self, 2))
 
-<<<<<<< HEAD
         c.tag_bind(self.top1, '<Button-1>', lambda a :Game.tryy(self,0, self.top1))
         c.tag_bind(self.top2, '<Button-1>', lambda a :Game.tryy(self,1, self.top2))
         c.tag_bind(self.top3, '<Button-1>', lambda a :Game.tryy(self,2, self.top3))
-=======
-        self.top_clothes=[0,1,2]
-        c.tag_bind(top1, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[0], top1))
-        c.tag_bind(top2, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[1], top2))
-        c.tag_bind(top3, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[2], top3))
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
 
         c.tag_bind(self.top4, '<Button-1>', lambda a :Game.tryy(self,3, self.top4))
         c.tag_bind(self.top5, '<Button-1>', lambda a :Game.tryy(self,4, self.top5))
@@ -462,36 +457,13 @@ class Game:
         c.tag_bind(self.bot5, '<Button-1>', lambda a :Game.tryy(self,10, self.bot5))
         c.tag_bind(self.bot6, '<Button-1>', lambda a :Game.tryy(self,11, self.bot6))
         
-        c.tag_bind(self.socks1, '<Button-1>', lambda a :Game.tryy(self,12, self.socks1))
-        c.tag_bind(self.socks2, '<Button-1>', lambda a :Game.tryy(self,13, self.socks2))
+        c.tag_bind(self.socks1, '<Button-1>', lambda a :Game.tryy(self,16, self.socks1))
+        c.tag_bind(self.socks2, '<Button-1>', lambda a :Game.tryy(self,17, self.socks2))
 
-<<<<<<< HEAD
-        c.tag_bind(self.pair1, '<Button-1>', lambda a :Game.tryy(self,14, self.pair1))
-        c.tag_bind(self.pair2, '<Button-1>', lambda a :Game.tryy(self,15, self.pair2))
-        c.tag_bind(self.pair3, '<Button-1>', lambda a :Game.tryy(self,16, self.pair3))
-        c.tag_bind(self.pair4, '<Button-1>', lambda a :Game.tryy(self,17, self.pair4))
-=======
-        self.bot_clothes=[7,8,9]
-        c.tag_bind(bot1, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[0], bot1))
-        c.tag_bind(bot2, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[1], bot2))
-        c.tag_bind(bot3, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[2], bot3))
-
-
-        self.socks_clothes=[10,11]
-        c.tag_bind(socks1, '<Button-1>', lambda a :Game.tryy(self,self.socks_clothes[0], socks1))
-        c.tag_bind(socks2, '<Button-1>', lambda a :Game.tryy(self,self.socks_clothes[1], socks2))
-
-        self.pair_clothes=[12,13,14,15]
-        c.tag_bind(pair1, '<Button-1>', lambda a :Game.tryy(self,self.pair_clothes[0], pair1))
-        c.tag_bind(pair2, '<Button-1>', lambda a :Game.tryy(self,self.pair_clothes[1], pair2))
-        c.tag_bind(pair3, '<Button-1>', lambda a :Game.tryy(self,self.pair_clothes[2], pair3))
-        c.tag_bind(pair4, '<Button-1>', lambda a :Game.tryy(self,self.pair_clothes[3], pair4))
-
-        self.accesories=[16,17,18]
-        c.tag_bind(accesorie1, '<Button-1>', lambda a :Game.tryy(self,self.accesories[0], accesorie1))
-        c.tag_bind(accesorie2, '<Button-1>', lambda a :Game.tryy(self,self.accesories[1], accesorie2))
-        c.tag_bind(accesorie3, '<Button-1>', lambda a :Game.tryy(self,self.accesories[1], accesorie3))
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
+        c.tag_bind(self.pair1, '<Button-1>', lambda a :Game.tryy(self,12, self.pair1))
+        c.tag_bind(self.pair2, '<Button-1>', lambda a :Game.tryy(self,13, self.pair2))
+        c.tag_bind(self.pair3, '<Button-1>', lambda a :Game.tryy(self,14, self.pair3))
+        c.tag_bind(self.pair4, '<Button-1>', lambda a :Game.tryy(self,15, self.pair4))
 
         c.tag_bind(self.accesorie1, '<Button-1>', lambda a :Game.tryy(self,18, self.accesorie1))
         c.tag_bind(self.accesorie2, '<Button-1>', lambda a :Game.tryy(self,19, self.accesorie2))
@@ -538,15 +510,9 @@ class Game:
                     c.move(self.top6, 1600, 1600)
 
                     self.stage1 = 'first'
-<<<<<<< HEAD
                 
                 
                 
-=======
-                c.tag_bind(top1, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[0], top1))
-                c.tag_bind(top2, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[1], top2))
-                c.tag_bind(top3, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[2], top3))
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
 
             if pakaramais == 2:
                 if self.stage2 == 'first':
@@ -560,7 +526,6 @@ class Game:
                     self.stage2 = 'second'
                 else:
 
-<<<<<<< HEAD
                     c.move(self.bot1, -1600, -1600)
                     c.move(self.bot2, -1600, -1600)
                     c.move(self.bot3, -1600, -1600)
@@ -570,81 +535,25 @@ class Game:
                     c.move(self.bot6, 1600, 1600)
                     self.stage2 = 'first'
 
-=======
-                c.tag_bind(bot1, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[0], bot1))
-                c.tag_bind(bot2, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[1], bot2))
-                c.tag_bind(bot3, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[2], bot3))
-        # else:
-        #     if self.stage1 == 'first':
-        #             c.delete('top')
-        #             top1 = c.create_image(427, 157, image = self.man_top4, tags='top')
-        #             top2 = c.create_image(557, 161, image = self.man_top5, tags='top')
-        #             top3 = c.create_image(688, 137, image = self.man_top6, tags='top')
-        #             self.top_clothes=[3,4,5]
-        #             self.stage1 = 'second'
-        #     else:
-        #         c.delete('top')
-        #         top1 = c.create_image(425, 149, image = self.man_top1, tags='top')
-        #         top2 = c.create_image(560, 147, image = self.man_top2, tags='top')
-        #         top3 = c.create_image(692, 157, image = self.man_top3, tags='top')
-        #         self.top_clothes=[0,1,2]
-        #         self.stage1 = 'first'
-        #         c.tag_bind(top1, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[0]))
-        #         c.tag_bind(top2, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[1]))
-        #         c.tag_bind(top3, '<Button-1>', lambda a :Game.tryy(self,self.top_clothes[2]))
-
-        #     if pakaramais == 2:
-        #         if self.stage1 == 'first':
-        #             c.delete('bot')
-        #             bot4 = c.create_image(445, 383, image = self.man_bot4, tags='bot')
-        #             bot5 = c.create_image(577, 392, image = self.man_bot5, tags='bot')
-        #             bot6 = c.create_image(702, 398, image = self.man_bot6, tags='bot')
-        #             self.stage1 = 'second'
-        #         else:
-        #             c.delete('bot')
-        #             bot1 = c.create_image(443, 400, image = self.man_bot1, tags='bot')
-        #             bot2 = c.create_image(574, 375, image = self.man_bot2, tags='bot')
-        #             bot3 = c.create_image(706, 362, image = self.man_bot3, tags='bot')
-        #             bot_clothes=[10,11,12]
-        #             self.stage1 = 'first'
-
-        #         c.tag_bind(bot1, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[0]))
-        #         c.tag_bind(bot2, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[1]))
-        #         c.tag_bind(bot3, '<Button-1>', lambda a :Game.tryy(self,self.bot_clothes[2]))
-
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
         
         
     def tryy(self, pic, name):
         print('works')
-<<<<<<< HEAD
         # c.delete(name)
-=======
-        c.delete(name)
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
        
         if self.gender=='man':
             if pic == 0:
                 x=192
-<<<<<<< HEAD
                 y=206   
-=======
-                y=218   
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
                 x_start = 427
                 y_start = 157                
             elif pic == 1:
                 x=191
-<<<<<<< HEAD
                 y=206
-=======
-                y=218
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
                 x_start, y_start = 557, 161
 
             elif pic == 2:
                 x=192
-<<<<<<< HEAD
                 y=208
                 x_start, y_start = 688, 137
             elif pic == 3:
@@ -687,29 +596,30 @@ class Game:
                 y=380
                 x_start, y_start = 702, 398
             elif pic == 12:
-                x=186
-                y=497
-                x_start, y_start =815, 394
-            elif pic == 13:
-                x=185
-                y=503
-                x_start, y_start =813, 475
-            elif pic == 14:
                 x=188
                 y=524
                 x_start, y_start =460, 510
-            elif pic == 15:
+            elif pic == 13:
                 x=185
                 y=520
                 x_start, y_start =542, 505
-            elif pic == 16:
+            elif pic == 14:
                 x=185
                 y=517
                 x_start, y_start =625, 505
-            elif pic == 17:
+            elif pic == 15:
                 x=190
                 y=518
                 x_start, y_start =721, 505
+            elif pic == 16:
+                x=186
+                y=497
+                x_start, y_start =815, 394
+            elif pic == 17:
+                x=185
+                y=503
+                x_start, y_start =813, 475
+        
             elif pic == 18:
                 x=184 
                 y=66
@@ -722,38 +632,13 @@ class Game:
                 x=187
                 y=96
                 x_start, y_start =810, 240
-=======
-                y=220
-                x_start, y_start = 688, 137
-            elif pic == 3:
-                x=183
-                y=225
-                x_start, y_start = 425, 149
-            elif pic == 4:
-                x=180
-                y=307
-                x_start, y_start =560, 147
-            elif pic == 5:
-                x=190
-                y=222
-                x_start, y_start = 692, 157
-            # elif pic == 6:
-            #     pass
-            # elif pic == 7:
-            #     pass
-            # elif pic == 8:
-            #     pass
-            # elif pic == 9:
-            #     pass
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
             else:
                 return None
 
 
         if pic<=5:
-<<<<<<< HEAD
             c.delete(self.last_top) #deletes last top outfit on
-            top_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])  #creates image on rack - after will be on human
+            top_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='tops')  #creates image on rack - after will be on human
             print(self.last_top_rack)
 
             if self.last_top_rack != None:
@@ -767,23 +652,31 @@ class Game:
             
         elif pic<=11:
             c.delete(self.last_bot) #deletes last bot outfit on
-            bot_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])  #creates image on rack - after will be on human
+            self.bot_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='bots')  #creates image on rack - after will be on human
             print(self.last_bot_rack)
 
             if self.last_bot_rack != None:
                 c.move(self.last_bot_rack, 800, 800) 
 
             c.move(name, -800, -800)
-            self.last_bot = bot_on
+            self.last_bot = self.bot_on
             self.last_bot_rack = name  #array to create image after put back
             print(self.last_bot_rack)
-            mover = bot_on #the image that has been placed will be moved on human
+            mover = self.bot_on #the image that has been placed will be moved on human
 
-
-
-        elif pic<=13:
+        elif pic<=15:
+            c.delete(self.last_pair)
+            self.pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='shoe')
+            if self.last_pair_rack != None:
+                c.move(self.last_pair_rack, 800, 800)
+            c.move(name, -800, -800)
+            self.last_pair = self.pair_on
+            self.last_pair_rack = name
+            print(self.last_pair_rack)
+            mover = self.pair_on
+        elif pic<=17:
             c.delete(self.last_sock)
-            sock_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
+            sock_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='sock')
           
             if self.last_sock_rack != None:
                 c.move(self.last_sock_rack, 800, 800) 
@@ -792,24 +685,14 @@ class Game:
             self.last_sock = sock_on
             self.last_sock_rack = name  #array to create image after put back
             print(self.last_sock_rack)
+            
             mover = sock_on #the image that has been placed will be moved on human
 
 
-        elif pic<=17:
-            c.delete(self.last_pair)
-            pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
-
-            if self.last_pair_rack != None:
-                c.move(self.last_pair_rack, 800, 800) 
-
-            c.move(name, -800, -800)
-            self.last_pair = pair_on
-            self.last_pair_rack = name
-            print(self.last_pair_rack)
-            mover = pair_on
+        
         elif pic <=20:
             c.delete(self.last_accesorie)
-            accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
+            accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='acc')
 
             if self.last_accesorie_rack != None:
                 c.move(self.last_accesorie_rack, 800, 800) 
@@ -818,62 +701,21 @@ class Game:
 
             self.last_accesorie = accesorie_on
             self.last_accesorie_rack = name
-=======
-            c.delete(self.last_top)
-            top_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
-                                                             
-            self.last_top = top_on
-            self.last_top_rack = top_on
-            mover = top_on
-        elif pic<=10:
-            c.delete(self.last_bot)
-            bot_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
-            self.last_bot = bot_on
-            self.last_bot_rack = bot_on
-            mover = bot_on
-        elif pic<=12:
-            c.delete(self.last_sock)
-            sock_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
-            self.last_sock = sock_on
-            self.last_sock_rack = sock_on
-            mover = sock_on
-        elif pic<=16:
-            c.delete(self.last_pair)
-            pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
-            self.last_pair = pair_on
-            self.last_pair_rack = pair_on
-            mover = pair_on
-        elif pic <=19:
-            c.delete(self.last_accesorie)
-            accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic])
-            self.last_accesorie = accesorie_on
-            self.last_accesorie_rack = accesorie_on
->>>>>>> b85116c1942e170bff5f4860252400b022bcc9ad
             mover = accesorie_on
     
+
         xx = (x-x_start)/100
         yy = (y-y_start)/100
-        while x_start>x:  
+        for i in range (100):
+            
             x_start+=xx
             y_start+=yy
             c.move(mover,xx,yy)
             c.update()
-
-
-
-            
-            # c.moveto(on_top, x, y)
-            
-
-
-        xx = (x-x_start)/100
-        yy = (y-y_start)/100
-        for i in range (100):  
-            x_start+=xx
-            y_start+=yy
-            c.move(mover,xx,yy)
-            c.update()
-
+        c.tag_raise("shoe")
+        c.tag_raise("bots")
+        c.tag_raise("tops")
+        c.update()
 
 
             
