@@ -27,6 +27,11 @@ class Game:
         self.last_socks_rack = None
         self.last_accesorie = None
         self.last_accesorie_rack = None
+        self.top_on = None
+        self.bot_on = None
+        self.socks_on = None
+        self.pair_on = None
+        self.accesorie_on = None
 
         bg_start = PhotoImage(file = 'pictures/bg/home-bg.png')
         bg_choose = PhotoImage(file = 'pictures/bg/choose-lvl.png')
@@ -37,6 +42,7 @@ class Game:
         bg_party = PhotoImage(file = 'pictures/bg/party-bg.png')
         bg_buizness = PhotoImage(file = 'pictures/bg/wedding-bg.png')
         bg_closet = PhotoImage(file = 'pictures/bg/fons.png')
+        bg_result = PhotoImage(file= 'pictures/bg/score-bg.png' )
 
         button_start = PhotoImage(file = 'pictures/start-button.png')
         poga_woman = PhotoImage(file = 'pictures/poga-woman.png')
@@ -44,6 +50,8 @@ class Game:
         poga_rand = PhotoImage(file = 'pictures/poga-rand.png')
         destroy = PhotoImage(file = 'pictures/destroy.png')
         bulta = PhotoImage(file = 'pictures/bulta.png')
+        gatavs_poga = PhotoImage(file = 'pictures/gatavs-poga.png')
+        atkartot_poga = PhotoImage(file = 'pictures/atkartot-poga.png')
 
         baloon1 = PhotoImage(file = 'pictures/baloon-wedding.png')
         baloon2 = PhotoImage(file = 'pictures/baloon-school.png')
@@ -154,12 +162,15 @@ class Game:
         self.bg_party = bg_party
         self.bg_buizness = bg_buizness
         self.bg_closet = bg_closet
+        self.bg_result = bg_result
 
         self.poga_woman = poga_woman
         self.poga_man = poga_man
         self.poga_rand = poga_rand
         self.destroy = destroy
         self.bulta = bulta
+        self.gatavs_poga = gatavs_poga
+        self.atkartot_poga = atkartot_poga
 
         self.baloon1 = baloon1
         self.baloon2 = baloon2
@@ -363,9 +374,8 @@ class Game:
         self.poga1.destroy()
 
         if self.theme == 'wedding':
-            print(self.bg_wedding)
             self.fons = c.create_image(432,279, image = self.bg_wedding)
-            print('kaazs')
+            
 
         elif self.theme == 'school':
             self.fons = c.create_image(432,279, image = self.bg_school)
@@ -486,45 +496,50 @@ class Game:
 
         print(gender)
 
+        self.gatavs_pogaa = Button(c,image=self.gatavs_poga, command=lambda:Game.result(self, self.last_top, self.last_bot, self.last_socks, self.last_pair, self.last_accesorie), background='#6B4531', activebackground='#6B4531', bd=0)
+        self.gatavs_pogaa.place(x=252,y=473)
+
+        self.test = Button(c,image=self.gatavs_poga, command=lambda:Game.choose_level(self),background='#6B4531', activebackground='#6B4531', bd=0)
+        self.test.place(x=8000,y=8000)
         # c.tag_bind('drebe', '<Button-1>', Game.tryy)
 
         c.tag_bind(bulta1, '<Button-1>', lambda xx :Game.bultaa(self, 1))
         c.tag_bind(bulta2, '<Button-1>', lambda x:Game.bultaa(self, 2))
 
-        c.tag_bind(self.top1, '<Button-1>', lambda a :Game.tryy(self,0, self.top1))
-        c.tag_bind(self.top2, '<Button-1>', lambda a :Game.tryy(self,1, self.top2))
-        c.tag_bind(self.top3, '<Button-1>', lambda a :Game.tryy(self,2, self.top3))
+        c.tag_bind(self.top1, '<Button-1>', lambda a :Game.tryy(self,0, self.top1, 1))
+        c.tag_bind(self.top2, '<Button-1>', lambda a :Game.tryy(self,1, self.top2, 2))
+        c.tag_bind(self.top3, '<Button-1>', lambda a :Game.tryy(self,2, self.top3, 3))
 
-        c.tag_bind(self.top4, '<Button-1>', lambda a :Game.tryy(self,3, self.top4))
-        c.tag_bind(self.top5, '<Button-1>', lambda a :Game.tryy(self,4, self.top5))
-        c.tag_bind(self.top6, '<Button-1>', lambda a :Game.tryy(self,5, self.top6))
+        c.tag_bind(self.top4, '<Button-1>', lambda a :Game.tryy(self,3, self.top4, 4))
+        c.tag_bind(self.top5, '<Button-1>', lambda a :Game.tryy(self,4, self.top5, 5))
+        c.tag_bind(self.top6, '<Button-1>', lambda a :Game.tryy(self,5, self.top6, 6))
  
-        c.tag_bind(self.bot1, '<Button-1>', lambda a :Game.tryy(self,6, self.bot1))
-        c.tag_bind(self.bot2, '<Button-1>', lambda a :Game.tryy(self,7, self.bot2))
-        c.tag_bind(self.bot3, '<Button-1>', lambda a :Game.tryy(self,8, self.bot3))
-        c.tag_bind(self.bot4, '<Button-1>', lambda a :Game.tryy(self,9, self.bot4))
-        c.tag_bind(self.bot5, '<Button-1>', lambda a :Game.tryy(self,10, self.bot5))
-        c.tag_bind(self.bot6, '<Button-1>', lambda a :Game.tryy(self,11, self.bot6))
+        c.tag_bind(self.bot1, '<Button-1>', lambda a :Game.tryy(self,6, self.bot1, 1))
+        c.tag_bind(self.bot2, '<Button-1>', lambda a :Game.tryy(self,7, self.bot2, 2))
+        c.tag_bind(self.bot3, '<Button-1>', lambda a :Game.tryy(self,8, self.bot3, 3))
+        c.tag_bind(self.bot4, '<Button-1>', lambda a :Game.tryy(self,9, self.bot4, 4))
+        c.tag_bind(self.bot5, '<Button-1>', lambda a :Game.tryy(self,10, self.bot5, 5))
+        c.tag_bind(self.bot6, '<Button-1>', lambda a :Game.tryy(self,11, self.bot6, 6))
         
-        c.tag_bind(self.socks1, '<Button-1>', lambda a :Game.tryy(self,16, self.socks1, self.socks1_light))
-        c.tag_bind(self.socks2, '<Button-1>', lambda a :Game.tryy(self,17, self.socks2, self.socks2_light))
+        c.tag_bind(self.socks1, '<Button-1>', lambda a :Game.tryy(self,16, self.socks1,1, self.socks1_light))
+        c.tag_bind(self.socks2, '<Button-1>', lambda a :Game.tryy(self,17, self.socks2,2, self.socks2_light))
 
         c.tag_bind(self.socks1_light, '<Button-1>', lambda a :Game.back(self,2,self.socks1, self.socks1_light, 815, 394,186, 497))
         c.tag_bind(self.socks2_light, '<Button-1>', lambda a :Game.back(self,2,self.socks2, self.socks2_light, 813, 475, 187, 503))
 
-        c.tag_bind(self.pair1, '<Button-1>', lambda a :Game.tryy(self,12, self.pair1))
-        c.tag_bind(self.pair2, '<Button-1>', lambda a :Game.tryy(self,13, self.pair2))
-        c.tag_bind(self.pair3, '<Button-1>', lambda a :Game.tryy(self,14, self.pair3))
-        c.tag_bind(self.pair4, '<Button-1>', lambda a :Game.tryy(self,15, self.pair4))
+        c.tag_bind(self.pair1, '<Button-1>', lambda a :Game.tryy(self,12, self.pair1, 1))
+        c.tag_bind(self.pair2, '<Button-1>', lambda a :Game.tryy(self,13, self.pair2, 2))
+        c.tag_bind(self.pair3, '<Button-1>', lambda a :Game.tryy(self,14, self.pair3, 3))
+        c.tag_bind(self.pair4, '<Button-1>', lambda a :Game.tryy(self,15, self.pair4, 4))
 
 
         c.tag_bind(self.accesorie1_light, '<Button-1>', lambda a :Game.back(self,1,self.accesorie1, self.accesorie1_light,808, 146, 184, 66))
         c.tag_bind(self.accesorie2_light, '<Button-1>', lambda a :Game.back(self,1,self.accesorie2, self.accesorie2_light, 806, 195, 188, 66))
         c.tag_bind(self.accesorie3_light, '<Button-1>', lambda a :Game.back(self,1,self.accesorie3, self.accesorie3_light, 810, 240, 188, 96))
 
-        c.tag_bind(self.accesorie1, '<Button-1>', lambda a :Game.tryy(self,18, self.accesorie1, self.accesorie1_light))
-        c.tag_bind(self.accesorie2, '<Button-1>', lambda a :Game.tryy(self,19, self.accesorie2, self.accesorie2_light))
-        c.tag_bind(self.accesorie3, '<Button-1>', lambda a :Game.tryy(self,20, self.accesorie3, self.accesorie3_light))
+        c.tag_bind(self.accesorie1, '<Button-1>', lambda a :Game.tryy(self,18, self.accesorie1, 1, self.accesorie1_light))
+        c.tag_bind(self.accesorie2, '<Button-1>', lambda a :Game.tryy(self,19, self.accesorie2, 2, self.accesorie2_light))
+        c.tag_bind(self.accesorie3, '<Button-1>', lambda a :Game.tryy(self,20, self.accesorie3, 3, self.accesorie3_light))
 
 
     def bultaa(self, pakaramais):
@@ -577,7 +592,7 @@ class Game:
                     self.stage2 = 'first'
 
     def back(self,witch, mover, light, x_start, y_start, x, y): 
-        print('irr') 
+        print('irr')
         if witch == 1: 
             c.delete(self.last_accesorie)
             self.last_accesorie = None
@@ -602,8 +617,7 @@ class Game:
 
         
 
-    def tryy(self, pic, name, light = None):
-        print('works')
+    def tryy(self, pic, name, number, light = None):
         # c.delete(name)
        
         if self.gender=='man':
@@ -703,22 +717,20 @@ class Game:
         if pic<=5:
             c.delete(self.last_top) #deletes last top outfit on
             top_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='tops')  #creates image on rack - after will be on human
-            print(self.last_top_rack)
 
             if self.last_top_rack != None:
                 c.move(self.last_top_rack, 800, 800) 
             c.move(name, -800, -800)
             self.last_top = top_on
             self.last_top_rack = name  #array to create image after put back
-            print(self.last_top_rack)
             mover = top_on #the image that has been placed will be moved on human
             self.daliitajs = 100
+            self.top_on = number
 
             
         elif pic<=11:
             c.delete(self.last_bot) #deletes last bot outfit on
             self.bot_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='bots')  #creates image on rack - after will be on human
-            print(self.last_bot_rack)
 
             if self.last_bot_rack != None:
                 c.move(self.last_bot_rack, 800, 800) 
@@ -726,9 +738,10 @@ class Game:
             c.move(name, -800, -800)
             self.last_bot = self.bot_on
             self.last_bot_rack = name  #array to create image after put back
-            print(self.last_bot_rack)
+
             mover = self.bot_on #the image that has been placed will be moved on human
             self.daliitajs = 100
+            self.bot_on = number
 
         elif pic<=15:
             c.delete(self.last_pair)
@@ -738,9 +751,10 @@ class Game:
             c.move(name, -800, -800)
             self.last_pair = self.pair_on
             self.last_pair_rack = name
-            print(self.last_pair_rack)
             mover = self.pair_on
             self.daliitajs = 200
+            self.pair_on = number
+
         elif pic<=17:
             c.delete(self.last_socks)
             socks_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='sock')
@@ -751,16 +765,15 @@ class Game:
             c.move(name, -800, -800)
             self.last_socks = socks_on
             self.last_socks_rack = name  #array to create image after put back
-            print(self.last_socks_rack)
             
             mover = socks_on #the image that has been placed will be moved on human
 
             self.daliitajs = 200
 
+            self.socks_on = number
+
             if c.coords(light)[0] < 800:
                 c.move(light, 600, 600)
-                print(c.coords(light))
-                print('pieskaita',light)
 
         
         elif pic <=20:
@@ -770,14 +783,13 @@ class Game:
             if self.last_accesorie_rack != None:
                 c.move(self.last_accesorie_rack, 800, 800) 
 
+            self.accesorie_on = number
 
             c.move(name, -800, -800)
-            print('pieskaita',light)
-            print(c.coords(light)[0])
+  
             if c.coords(light)[0] < 800:
                 c.move(light, 600, 600)
-                print(c.coords(light))
-                print('pieskaita',light)
+  
 
             self.last_accesorie = accesorie_on
             self.last_accesorie_rack = name
@@ -803,6 +815,201 @@ class Game:
             
             # c.moveto(on_top, x, y)
             
+    def result(self, top, bot, socks, pair, accesories):
+        c.delete('all')
+        self.gatavs_pogaa.destroy()
+
+        self.fons = c.create_image(432,279, image = self.bg_result)
+
+        self.atbilde = []
+        if self.gender == 'man':
+            self.result = 0
+            if top == None:
+                self.atbilde.append('Tev tav nav uzvilkts krekls, bikses vai kurpes.')
+                self.atbilde.append('Tāds apģērbs ētiski pareizs!')
+                
+            elif self.bot_on == None:
+                self.atbilde.append('Tev tav nav uzvilkts krekls, bikses vai kurpes.')
+                self.atbilde.append('Tāds apģērbs ētiski pareizs!')
+            elif pair == None:
+                self.atbilde.append('Tev tav nav uzvilkts krekls, bikses vai kurpes.')
+                self.atbilde.append('Tāds apģērbs ētiski pareizs!')
+            else:
+                print(self.theme)
+                if self.theme == 'wedding':
+
+                    if self.bot_on == 2 or self.bot_on == 3:
+                        print('self.bot_on2')
+                        self.atbilde.append('Šorti vai saplēstas bikses nav piemērots svētku apģērbs!')
+                        self.result += 2
+                    elif self.bot_on == 4:
+                        self.atbilde.append('Šīs bikses ir par īsu!')
+                        self.result += 4
+                    elif self.bot_on == 1:
+                        self.atbilde.append('Džinsas nav īsti piemērots apģērbs kāzām!')
+                        self.result += 6
+                    elif self.bot_on == 5 or self.bot_on == 6:
+                        self.result += 30
+
+
+                    if self.top_on == 1 or self.top_on == 2:
+                        self.atbilde.append('Maika vai džemperis nav piemērots apģērbs kāzām!')
+                        self.result += 2
+                    elif self.top_on == 4 or self.top_on == 5:
+                        self.result += 30
+                    elif self.top_on == 3 or self.top_on == 6:
+                        self.atbilde.append('Uz kāzām augšā jāuzvelk kautkas svinēgāks!')
+                        self.result += 6
+
+                    if self.pair_on == 1 or self.pair_on == 2:
+                        self.atbilde.append('Uz kāzām krosenes vai čības nav piemērotas!')
+                        self.result += 4
+                    elif self.pair_on == 3 or self.pair_on == 4:
+                        self.result += 30
+
+                    if self.socks_on == 2:
+                        self.atbilde.append('Zeķes ir par spilgtu!')
+                        self.result+=1
+
+                    elif self.socks_on ==1:
+                        self.result+=5
+
+                    if self.accesorie_on == 1:
+                        self.atbilde.append('Šī cepure nav piemērota kāzām!')
+                        print('jii')
+                        print(self.atbilde)
+                        self.result-=2
+                    else:
+                        self.result+=2
+
+
+
+            if self.theme == 'school':
+
+                    if self.bot_on == 2 or self.bot_on == 3:
+    
+                        self.atbilde.append('Šorti vai saplēstas bikses nav piemērots apģērbs skolai!')
+                        self.result += 2
+                    elif self.bot_on == 4 and self.socks_on == None:
+                        self.atbilde.append('Šīs bikses ir par īsu, ar tām jāvelk zeķes!')
+                        self.result += 6
+                    elif self.bot_on == 5 or self.bot_on == 6:
+                        self.atbilde.append('Šīs bikses ir pārāk svinīgs apģērbs skolai!')
+                        self.result += 6
+                    elif self.bot_on == 1 or self.bot_on == 4:
+                        self.result += 30
+
+
+                    if self.top_on == 3 or self.top_on == 2 or self.top_on == 6:
+                        self.result += 30
+                    elif self.top_on == 1:
+                        self.result += 5
+                        self.atbilde.append('Uz skolu maika nav piemērots apģērbs!')
+                    elif self.top_on == 4 or self.top_on == 5:
+                        self.atbilde.append('Augšā jāvelk kautkas ne tik svinīgs!')
+                        self.result += 6
+
+
+                    if self.pair_on == 2:
+                        self.result += 30
+                    elif self.pair_on == 3 or self.pair_on == 4:
+                        self.atbilde.append('Šīs kurpes ir par svinīgu skolai!')
+                        self.result += 5
+                    else:
+                        self.atbilde.append('Čības nav piemērots apģērbs skolai skolai!')
+                        self.result += 3
+
+
+                    if self.socks_on != None:
+                        self.result+=5
+                    else:
+                        self.atbilde.append('Ir jāuzvelk zeķes!')
+
+                    if self.accesorie_on == None:
+                        self.result+=5
+                    else:
+                        self.atbilde.append('Skolā nav jāvelk cepure vai saulesbrilles!')
+
+
+
+            
+            if self.theme == 'beach':
+
+                    if self.bot_on == 1 or self.bot_on == 2:
+    
+                        self.atbilde.append('Džinsas piemērotas īsti pludmalei!')
+                        self.result += 19
+
+                    elif self.bot_on == 5 or self.bot_on == 5:
+    
+                        self.atbilde.append('Uzvilktās bikses ir par svinīgu!')
+                        self.result += 9
+
+                    elif self.bot_on == 3 or self.bot_on == 4:
+                        self.result += 30
+
+
+
+                    if self.top_on == 1 or self.top_on == 2:
+                        self.result += 30
+
+                    elif self.top_on == 4 or self.top_on == 5:
+                        self.result += 10
+                        self.atbilde.append('Augšā nav jāvelk kautkas tik svinīgs!')
+
+                    elif self.top_on == 2 or self.top_on == 6:
+                        self.atbilde.append('Džemperī pludmalē būtu par karstu!')
+                        self.result += 15
+
+
+                    if self.pair_on == 1:
+                        self.result += 30
+                    elif self.pair_on == 3 or self.pair_on == 4:
+                        self.atbilde.append('Šīs kurpes ir par svinīgu pludmalei!')
+                        self.result += 5
+                    else:
+                        self.atbilde.append('Labāk uz pludmali vilkt čības!')
+                        self.result += 25
+
+
+                    if self.accesorie_on == None:
+                        pass
+                    else:
+                        self.result+=5
+                        self.atbilde.append('Uz pludmali jāuzvelk cepure vai saulesbrilles!')
+
+        print('RESULTS')
+        print(self.atbilde)
+
+
+        self.atkartott = Button(c,image=self.atkartot_poga, command=lambda:Game.play_again(self),background='#7FAD71', activebackground='#7FAD71', bd=0)
+        self.atkartott.place(x=351,y=473)
+   
+        x = 200
+        y = 250
+        if self.atbilde != []:
+            for i in self.atbilde:
+                c.create_text(x, y, text = i)
+                y += 50
+        else:
+            c.create_text(x, y, text = 'Tu esi piemēroti saģērbis doto cilvēku!')
+
+        print(self.result)
+        c.create_text(630, 210, text = str(self.result)+'%', font=("Arial", 40))
+
+
+                    
+
+                    
+    def play_again(self):
+        c.delete('all')
+        self.atkartott.destroy()
+        Game()
+
+
+
+            
+
 
 
 Game()
