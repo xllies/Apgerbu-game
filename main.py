@@ -918,7 +918,7 @@ class Game:
             c.move(name, -800, -800)
             self.last_top = top_on
             self.last_top_rack = name  #array to create image after put back
-            self.mover = top_on #the image that has been placed will be moved on human
+            mover = top_on #the image that has been placed will be moved on human
             self.daliitajs = 100
             self.top_on = number
 
@@ -932,7 +932,7 @@ class Game:
             self.last_bot = self.bot_on
             self.last_bot_rack = name  #array to create image after put back
 
-            self.mover = self.bot_on #the image that has been placed will be moved on human
+            mover = self.bot_on #the image that has been placed will be moved on human
             self.daliitajs = 100
             self.bot_on = number
 
@@ -944,7 +944,7 @@ class Game:
             c.move(name, -800, -800)
             self.last_pair = self.pair_on
             self.last_pair_rack = name
-            self.mover = self.pair_on
+            mover = self.pair_on
             self.daliitajs = 200
             self.pair_on = number
 
@@ -960,7 +960,7 @@ class Game:
             self.last_socks_rack = name  #array to create image after put back
       
             
-            self.mover = socks_on #the image that has been placed will be moved on human
+            mover = socks_on #the image that has been placed will be moved on human
 
             self.daliitajs = 200
 
@@ -991,7 +991,7 @@ class Game:
 
                 self.last_accesorie = accesorie_on
                 self.last_accesorie_rack = name
-                self.mover = accesorie_on
+                mover = accesorie_on
 
                 self.daliitajs = 200
 
@@ -1101,7 +1101,7 @@ class Game:
                     self.last_top = top_on
                     self.last_top_rack = name  #array to create image after put back
                     print(self.last_top_rack)
-                    self.mover = top_on #the image that has been placed will be moved on human
+                    mover = top_on #the image that has been placed will be moved on human
                     self.daliitajs = 200
 
             elif pic<=11:
@@ -1116,7 +1116,7 @@ class Game:
                     self.last_bot = self.bot_on
                     self.last_bot_rack = name  #array to create image after put back
                     print(self.last_bot_rack)
-                    self.mover = self.bot_on #the image that has been placed will be moved on human
+                    mover = self.bot_on #the image that has been placed will be moved on human
                     self.daliitajs = 200
             elif pic<=15:
                     c.delete(self.last_pair)
@@ -1127,7 +1127,7 @@ class Game:
                     self.last_pair = self.pair_on
                     self.last_pair_rack = name
                     print(self.last_pair_rack)
-                    self.mover = self.pair_on
+                    mover = self.pair_on
                     self.daliitajs = 200
             elif pic<=17:
                 c.delete(self.last_sock)
@@ -1141,7 +1141,7 @@ class Game:
                 self.last_sock_rack = name  #array to create image after put back
                 print(self.last_sock_rack)
 
-                self.mover = sock_on #the image that has been placed will be moved on human
+                mover = sock_on #the image that has been placed will be moved on human
                 self.daliitajs = 200
 
                 self.accesorie_on = number
@@ -1162,7 +1162,7 @@ class Game:
 
                 self.last_accesorie = accesorie_on
                 self.last_accesorie_rack = name
-                self.mover = accesorie_on    
+                mover = accesorie_on    
                 self.daliitajs = 200
 
         xx = (x-x_start)/self.daliitajs
@@ -1171,7 +1171,7 @@ class Game:
             
             x_start+=xx
             y_start+=yy
-            c.move(self.mover,xx,yy)
+            c.move(mover,xx,yy)
             c.update()
         c.tag_raise("shoe")
         c.tag_raise("bots")
