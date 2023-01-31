@@ -44,6 +44,7 @@ class Game:
         poga_rand = PhotoImage(file = 'pictures/poga-rand.png')
         destroy = PhotoImage(file = 'pictures/destroy.png')
         bulta = PhotoImage(file = 'pictures/bulta.png')
+        gatavs_poga = PhotoImage(file = 'pictures/gatavs-poga.png')
 
         baloon1 = PhotoImage(file = 'pictures/baloon-wedding.png')
         baloon2 = PhotoImage(file = 'pictures/baloon-school.png')
@@ -198,6 +199,7 @@ class Game:
         self.poga_rand = poga_rand
         self.destroy = destroy
         self.bulta = bulta
+        self.gatavs_poga = gatavs_poga
 
         self.baloon1 = baloon1
         self.baloon2 = baloon2
@@ -211,7 +213,7 @@ class Game:
         self.pantshanger = pantshanger
 
 
-# ---------------------------------------------------------------# MAN ------------------------------------------
+# ---------------------------------------------------------------# WOMAN ------------------------------------------
 
 
         self.man = man
@@ -277,13 +279,18 @@ class Game:
                             man_bot6,
                             man_socks1,
                             man_socks2,
+                            man_socks1_light,
+                            man_socks2_light,
                             man_pair1,
                             man_pair2,
                             man_pair3,
                             man_pair4,
                             man_accesorie1,
                             man_accesorie2,
-                            man_accesorie3]
+                            man_accesorie3,
+                            man_accesorie1_light,
+                            man_accesorie2_light,
+                            man_accesorie3_light]
 
         self.man_top1 = man_top1
         self.man_top2 = man_top2
@@ -378,13 +385,19 @@ class Game:
                             woman_bot6,
                             woman_socks1,
                             woman_socks2,
+                            # woman_socks1_light,
+                            # woman_socks2_light,
                             woman_pair1,
                             woman_pair2,
                             woman_pair3,
                             woman_pair4,
                             woman_accesorie1,
                             woman_accesorie2,
-                            woman_accesorie3]
+                            woman_accesorie3,
+                            # woman_accesorie1_light,
+                            # woman_accesorie2_light,
+                            # woman_accesorie3_light
+                            ]
         self.woman_top1 = woman_top1
         self.woman_top2 = woman_top2
         self.woman_top3 = woman_top3
@@ -407,11 +420,14 @@ class Game:
         self.woman_socks1 = woman_socks1
         self.woman_socks2 = woman_socks2
 
+        # self.woman_socks1_light = woman_socks1_light
+        # self.woman_socks2_light = woman_socks2_light
+
         self.woman_accesorie1 = woman_accesorie1
         self.woman_accesorie2 = woman_accesorie2
         self.woman_accesorie3 = woman_accesorie3
 
-        self.woman_accesorie3_light = woman_accesorie3_light
+        # self.woman_accesorie3_light = woman_accesorie3_light
 
 
  
@@ -522,7 +538,7 @@ class Game:
         if gender == 0:
             c.create_image(175, 291, image = self.woman)
 
-            accesorie3 = c.create_image(810, 240, image = self.woman_accesorie3, tags='drebe')
+            self.accesorie3 = c.create_image(810, 240, image = self.woman_accesorie3, tags='drebe')
 
             self.top1 = c.create_image(432, 142, image = self.woman_top1, tags='drebe')
             self.top2 = c.create_image(560, 153, image = self.woman_top2, tags='drebe')
@@ -559,9 +575,6 @@ class Game:
         if gender == 1:
             c.create_image(190, 290, image = self.man)
 
-            self.accesorie3_light = c.create_image(810, 240, image = self.man_accesorie3_light)
-            c.move(self.accesorie3_light, -600, -600)
-
             self.accesorie3 = c.create_image(810, 240, image = self.man_accesorie3, tags='drebe')
 
             self.top1 = c.create_image(425, 150, image = self.man_top1, tags='top')
@@ -595,20 +608,19 @@ class Game:
             self.pair3 = c.create_image(625, 505, image = self.man_pair3, tags='drebe')
             self.pair4 = c.create_image(721, 505, image = self.man_pair4, tags='drebe')
 
-            self.socks1_light = c.create_image(815, 394, image = self.man_socks1_light)
-            self.socks2_light = c.create_image(813, 475, image = self.man_socks2_light)
-
-            c.move(self.socks1_light, -600, -600)
-            c.move(self.socks2_light, -600, -600)
-
-
             self.socks1 = c.create_image(815, 394, image = self.man_socks1, tags='drebe')
             self.socks2 = c.create_image(813, 475, image = self.man_socks2, tags='drebe')
 
             self.gender = 'man'
 
+
         print(gender)
 
+        self.gatavs_pogaa = Button(c,image=self.gatavs_poga, command=lambda:Game.choose_level(self),background='#6B4531', activebackground='#6B4531', bd=0)
+        self.gatavs_pogaa.place(x=252,y=473)
+
+        self.test = Button(c,image=self.gatavs_poga, command=lambda:Game.choose_level(self),background='#6B4531', activebackground='#6B4531', bd=0)
+        self.test.place(x=8000,y=8000)
         # c.tag_bind('drebe', '<Button-1>', Game.tryy)
 
         c.tag_bind(bulta1, '<Button-1>', lambda xx :Game.bultaa(self, 1))
@@ -629,11 +641,11 @@ class Game:
         c.tag_bind(self.bot5, '<Button-1>', lambda a :Game.tryy(self,10, self.bot5))
         c.tag_bind(self.bot6, '<Button-1>', lambda a :Game.tryy(self,11, self.bot6))
         
-        c.tag_bind(self.socks1, '<Button-1>', lambda a :Game.tryy(self,16, self.socks1, self.socks1_light))
-        c.tag_bind(self.socks2, '<Button-1>', lambda a :Game.tryy(self,17, self.socks2, self.socks2_light))
+        c.tag_bind(self.man_socks1, '<Button-1>', lambda a :Game.tryy(self,16, self.socks1, self.man_socks1_light))
+        c.tag_bind(self.man_socks2, '<Button-1>', lambda a :Game.tryy(self,17, self.socks2, self.man_socks2_light))
 
-        c.tag_bind(self.socks1_light, '<Button-1>', lambda a :Game.back(self,2,self.socks1, self.socks1_light, 815, 394,186, 497))
-        c.tag_bind(self.socks2_light, '<Button-1>', lambda a :Game.back(self,2,self.socks2, self.socks2_light, 813, 475, 187, 503))
+        c.tag_bind(self.man_socks1_light, '<Button-1>', lambda a :Game.back(self,2,self.socks1, self.man_socks1_light, 815, 394,186, 497))
+        c.tag_bind(self.man_socks2_light, '<Button-1>', lambda a :Game.back(self,2,self.socks2, self.man_socks2_light, 813, 475, 187, 503))
 
         c.tag_bind(self.pair1, '<Button-1>', lambda a :Game.tryy(self,12, self.pair1))
         c.tag_bind(self.pair2, '<Button-1>', lambda a :Game.tryy(self,13, self.pair2))
@@ -651,6 +663,55 @@ class Game:
 
 
     def bultaa(self, pakaramais):
+        if self.gender == 'man':
+            if pakaramais == 1:
+                if self.stage1 == 'first':
+                    # c.delete('top')
+                    c.move(self.top1, 1600, 1600)
+                    c.move(self.top2, 1600, 1600)
+                    c.move(self.top3, 1600, 1600)
+
+                    c.move(self.top4, -1600, -1600)
+                    c.move(self.top5, -1600, -1600)
+                    c.move(self.top6, -1600, -1600)
+
+                    self.stage1 = 'second'
+                else:
+                    # c.delete('top')
+                    c.move(self.top1, -1600, -1600)
+                    c.move(self.top2, -1600, -1600)
+                    c.move(self.top3, -1600, -1600)
+
+                    c.move(self.top4, 1600, 1600)
+                    c.move(self.top5, 1600, 1600)
+                    c.move(self.top6, 1600, 1600)
+
+                    self.stage1 = 'first'
+                
+                
+                
+
+            if pakaramais == 2:
+                if self.stage2 == 'first':
+                    c.move(self.bot1, 1600, 1600)
+                    c.move(self.bot2, 1600, 1600)
+                    c.move(self.bot3, 1600, 1600)
+
+                    c.move(self.bot4, -1600, -1600)
+                    c.move(self.bot5, -1600, -1600)
+                    c.move(self.bot6, -1600, -1600)       
+                    self.stage2 = 'second'
+                else:
+
+                    c.move(self.bot1, -1600, -1600)
+                    c.move(self.bot2, -1600, -1600)
+                    c.move(self.bot3, -1600, -1600)
+
+                    c.move(self.bot4, 1600, 1600)
+                    c.move(self.bot5, 1600, 1600)
+                    c.move(self.bot6, 1600, 1600)
+                    self.stage2 = 'first'
+        if self.gender == 'woman':
             if pakaramais == 1:
                 if self.stage1 == 'first':
                     # c.delete('top')
@@ -698,15 +759,26 @@ class Game:
                     c.move(self.bot5, 1600, 1600)
                     c.move(self.bot6, 1600, 1600)
                     self.stage2 = 'first'
-        if self.gender == 'woman':
-            if pakaramais == 1:
-                if self.stage1 == 'first':
-                    # c.delete('top')
-                    c.move(self.top1, 1600, 1600)
-                    c.move(self.top2, 1600, 1600)
-                    c.move(self.top3, 1600, 1600)
 
         
+    def back(self,witch, mover, light, x_start, y_start, x, y): 
+        print('irr') 
+        if witch == 1: 
+            c.delete(self.last_accesorie)
+            self.last_accesorie = None
+            self.last_accesorie_rack = None
+        else:
+            c.delete(self.last_socks)
+            self.last_socks = None
+            self.last_socks_rack = None
+
+        c.move(mover, 800, 800)
+        xx = (x - x_start)/200
+        yy = (y - y_start)/200
+        c.move(mover, (x - x_start), (y - y_start))
+        for i in range (200):
+            c.move(mover ,-xx,-yy)
+            c.update()
         
         c.move(light, -600, -600)
         print('atnem',light)
@@ -811,78 +883,255 @@ class Game:
                 x_start, y_start =810, 240
             else:
                 return None
+
+
             if pic<=5:
                 c.delete(self.last_top) #deletes last top outfit on
                 top_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='tops')  #creates image on rack - after will be on human
                 print(self.last_top_rack)
 
-            if self.last_top_rack != None:
-                c.move(self.last_top_rack, 800, 800) 
-            c.move(name, -800, -800)
-            self.last_top = top_on
-            self.last_top_rack = name  #array to create image after put back
-            print(self.last_top_rack)
-            mover = top_on #the image that has been placed will be moved on human
+                if self.last_top_rack != None:
+                    c.move(self.last_top_rack, 800, 800) 
+                c.move(name, -800, -800)
+                self.last_top = top_on
+                self.last_top_rack = name  #array to create image after put back
+                print(self.last_top_rack)
+                mover = top_on #the image that has been placed will be moved on human
+                self.daliitajs = 100
 
             
             elif pic<=11:
                 c.delete(self.last_bot) #deletes last bot outfit on
                 self.bot_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='bots')  #creates image on rack - after will be on human
                 print(self.last_bot_rack)
-
                 if self.last_bot_rack != None:
                     c.move(self.last_bot_rack, 800, 800) 
 
-            c.move(name, -800, -800)
-            self.last_bot = self.bot_on
-            self.last_bot_rack = name  #array to create image after put back
-            print(self.last_bot_rack)
-            mover = self.bot_on #the image that has been placed will be moved on human
+                c.move(name, -800, -800)
+                self.last_bot = self.bot_on
+                self.last_bot_rack = name  #array to create image after put back
+                print(self.last_bot_rack)
+                mover = self.bot_on #the image that has been placed will be moved on human
+                self.daliitajs = 100
 
-        elif pic<=15:
-            c.delete(self.last_pair)
-            self.pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='shoe')
-            if self.last_pair_rack != None:
-                c.move(self.last_pair_rack, 800, 800)
-            c.move(name, -800, -800)
-            self.last_pair = self.pair_on
-            self.last_pair_rack = name
-            print(self.last_pair_rack)
-            mover = self.pair_on
-        elif pic<=17:
-            c.delete(self.last_sock)
-            sock_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='sock')
+            elif pic<=15:
+                c.delete(self.last_pair)
+                self.pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='shoe')
+                if self.last_pair_rack != None:
+                    c.move(self.last_pair_rack, 800, 800)
+                c.move(name, -800, -800)
+                self.last_pair = self.pair_on
+                self.last_pair_rack = name
+                print(self.last_pair_rack)
+                mover = self.pair_on
+                self.daliitajs = 200
+            elif pic<=17:
+                c.delete(self.last_socks)
+                socks_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='sock')
           
-            if self.last_sock_rack != None:
-                c.move(self.last_sock_rack, 800, 800) 
+                if self.last_socks_rack != None:
+                    c.move(self.last_socks_rack, 800, 800) 
 
-            c.move(name, -800, -800)
-            self.last_sock = sock_on
-            self.last_sock_rack = name  #array to create image after put back
-            print(self.last_sock_rack)
+                c.move(name, -800, -800)
+                self.last_socks = socks_on
+                self.last_socks_rack = name  #array to create image after put back
+                print(self.last_socks_rack)
             
-            mover = sock_on #the image that has been placed will be moved on human
+                mover = socks_on #the image that has been placed will be moved on human
 
-            self.daliitajs = 200
+                self.daliitajs = 200
 
-        
-        elif pic <=20:
-            c.delete(self.last_accesorie)
-            accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='acc')
+                if c.coords(light)[0] < 800:
+                    c.move(light, 600, 600)
+                    print(c.coords(light))
+                    print('pieskaita',light)    
+            elif pic <=20:
+                c.delete(self.last_accesorie)
+                accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='acc')
 
                 if self.last_accesorie_rack != None:
                     c.move(self.last_accesorie_rack, 800, 800) 
 
-            c.move(name, -800, -800)
 
-            self.last_accesorie = accesorie_on
-            self.last_accesorie_rack = name
-            mover = accesorie_on
-    
+                c.move(name, -800, -800)
+                print('pieskaita',light)
+                print(c.coords(light)[0])
+                if c.coords(light)[0] < 800:
+                    c.move(light, 600, 600)
+                    print(c.coords(light))
+                    print('pieskaita',light)
 
-        xx = (x-x_start)/100
-        yy = (y-y_start)/100
-        for i in range (100):
+                self.last_accesorie = accesorie_on
+                self.last_accesorie_rack = name
+                mover = accesorie_on
+
+                self.daliitajs = 200
+        if self.gender=='woman':
+            if pic == 0:
+                x=179
+                y=190
+                x_start = 422
+                y_start = 132          
+            elif pic == 1:
+                x=176
+                y=196
+                x_start, y_start = 560, 153
+
+            elif pic == 2:
+                x=177
+                y=207
+                x_start, y_start = 692, 163
+            elif pic == 3:
+                x=178
+                y=220
+                x_start, y_start = 429, 162
+            elif pic == 4:
+                x=178
+                y=182
+                x_start, y_start =560, 153
+            elif pic == 5:
+                x=177
+                y=266
+                x_start, y_start = 692, 189
+
+
+
+            elif pic == 6:
+                x=180
+                y=360
+                x_start, y_start = 441, 399
+            elif pic == 7:
+                x=177
+                y=306
+                x_start, y_start = 573, 376
+            elif pic == 8:
+                x=176
+                y=273
+                x_start, y_start = 706, 352
+            elif pic == 9:
+                x=196
+                y=357
+                x_start, y_start = 444, 400
+            elif pic == 10:
+                x=178
+                y=358
+                x_start, y_start = 574, 392
+            elif pic == 11:
+                x=174
+                y=360
+                x_start, y_start = 703, 391
+            
+            elif pic == 12:
+                x=172
+                y=503
+                x_start, y_start =463, 510
+            elif pic == 13:
+                x=173
+                y=499
+                x_start, y_start =542, 505
+            elif pic == 14:
+                x=185
+                y=517
+                x_start, y_start =625, 505
+            elif pic == 15:
+                x=175
+                y=505
+                x_start, y_start =721, 505
+            elif pic == 16:
+                x=186
+                y=497
+                x_start, y_start =815, 394
+            elif pic == 17:
+                x=185
+                y=503
+                x_start, y_start =813, 475
+        
+            elif pic == 18:
+                x=184 
+                y=66
+                x_start, y_start =808, 146
+            elif pic == 19:
+                x=188
+                y=66
+                x_start, y_start =806, 195
+            elif pic == 20:
+                x=187
+                y=96
+                x_start, y_start =810, 240
+            else:
+                return None
+            if pic<=5:
+                    c.delete(self.last_top) #deletes last top outfit on
+                    top_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='tops')  #creates image on rack - after will be on human
+                    print(self.last_top_rack)
+
+                    if self.last_top_rack != None:
+                        c.move(self.last_top_rack, 800, 800) 
+                    c.move(name, -800, -800)
+                    self.last_top = top_on
+                    self.last_top_rack = name  #array to create image after put back
+                    print(self.last_top_rack)
+                    mover = top_on #the image that has been placed will be moved on human
+                    self.daliitajs = 200
+
+            elif pic<=11:
+                    c.delete(self.last_bot) #deletes last bot outfit on
+                    self.bot_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='bots')  #creates image on rack - after will be on human
+                    print(self.last_bot_rack)
+
+                    if self.last_bot_rack != None:
+                        c.move(self.last_bot_rack, 800, 800) 
+
+                    c.move(name, -800, -800)
+                    self.last_bot = self.bot_on
+                    self.last_bot_rack = name  #array to create image after put back
+                    print(self.last_bot_rack)
+                    mover = self.bot_on #the image that has been placed will be moved on human
+                    self.daliitajs = 200
+            elif pic<=15:
+                    c.delete(self.last_pair)
+                    self.pair_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='shoe')
+                    if self.last_pair_rack != None:
+                        c.move(self.last_pair_rack, 800, 800)
+                    c.move(name, -800, -800)
+                    self.last_pair = self.pair_on
+                    self.last_pair_rack = name
+                    print(self.last_pair_rack)
+                    mover = self.pair_on
+                    self.daliitajs = 200
+            elif pic<=17:
+                c.delete(self.last_sock)
+                sock_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='sock')
+
+                if self.last_sock_rack != None:
+                    c.move(self.last_sock_rack, 800, 800) 
+
+                c.move(name, -800, -800)
+                self.last_sock = sock_on
+                self.last_sock_rack = name  #array to create image after put back
+                print(self.last_sock_rack)
+
+                mover = sock_on #the image that has been placed will be moved on human
+                self.daliitajs = 200
+
+
+            elif pic <=20:
+                c.delete(self.last_accesorie)
+                accesorie_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='acc')
+
+                if self.last_accesorie_rack != None:
+                    c.move(self.last_accesorie_rack, 800, 800) 
+
+                c.move(name, -800, -800)
+
+                self.last_accesorie = accesorie_on
+                self.last_accesorie_rack = name
+                mover = accesorie_on    
+                self.daliitajs = 200
+
+        xx = (x-x_start)/self.daliitajs
+        yy = (y-y_start)/self.daliitajs
+        for i in range (self.daliitajs):
             
             x_start+=xx
             y_start+=yy

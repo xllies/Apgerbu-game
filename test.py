@@ -78,6 +78,10 @@ class Game:
         on_man_socks1 = PhotoImage(file = 'pictures/man-clothes/socks1.png')
         on_man_socks2 = PhotoImage(file = 'pictures/man-clothes/socks2.png')
 
+        on_man_accesorie1 = PhotoImage(file = 'pictures/man-clothes/accesorie1.png')
+        on_man_accesorie2 = PhotoImage(file = 'pictures/man-clothes/accesorie2.png')
+        on_man_accesorie3 = PhotoImage(file = 'pictures/man-clothes/accesorie3.png')
+
         on_man_pair1 = PhotoImage(file = 'pictures/man-clothes/pair1.png')
         on_man_pair2 = PhotoImage(file = 'pictures/man-clothes/pair2.png')
         on_man_pair3 = PhotoImage(file = 'pictures/man-clothes/pair3.png')
@@ -113,18 +117,52 @@ class Game:
 # ---------------------------------------------------------------# WOMAN ------------------------------------------
         woman = PhotoImage(file = 'pictures/woman.png') 
 
+        on_woman_top1 = PhotoImage(file = 'pictures/woman-clothes/top1.png')
+        on_woman_top2 = PhotoImage(file = 'pictures/woman-clothes/top2.png')
+        on_woman_top3 = PhotoImage(file = 'pictures/woman-clothes/top3.png')
+        on_woman_top4 = PhotoImage(file = 'pictures/woman-clothes/top4.png')
+        on_woman_top5 = PhotoImage(file = 'pictures/woman-clothes/top5.png')
+        on_woman_top6 = PhotoImage(file = 'pictures/woman-clothes/top6.png')
+
+        on_woman_bot1 = PhotoImage(file = 'pictures/woman-clothes/bot1.png')
+        on_woman_bot2 = PhotoImage(file = 'pictures/woman-clothes/bot2.png')
+        on_woman_bot3 = PhotoImage(file = 'pictures/woman-clothes/bot3.png')
+        on_woman_bot4 = PhotoImage(file = 'pictures/woman-clothes/bot4.png')
+        on_woman_bot5 = PhotoImage(file = 'pictures/woman-clothes/bot5.png')
+        on_woman_bot6 = PhotoImage(file = 'pictures/woman-clothes/bot6.png')
+
+        on_woman_socks1 = PhotoImage(file = 'pictures/woman-clothes/socks1.png')
+        on_woman_socks2 = PhotoImage(file = 'pictures/woman-clothes/socks2.png')
+
+        on_woman_accesorie1 = PhotoImage(file = 'pictures/woman-clothes/accesorie1.png')
+        on_woman_accesorie2 = PhotoImage(file = 'pictures/woman-clothes/accesorie2.png')
+        on_woman_accesorie3 = PhotoImage(file = 'pictures/woman-clothes/accesorie3.png')
+
+        on_woman_pair1 = PhotoImage(file = 'pictures/woman-clothes/pair1.png')
+        on_woman_pair2 = PhotoImage(file = 'pictures/woman-clothes/pair2.png')
+        on_woman_pair3 = PhotoImage(file = 'pictures/woman-clothes/pair3.png')
+        on_woman_pair4 = PhotoImage(file = 'pictures/woman-clothes/pair4.png')
+
         woman_top1 = PhotoImage(file = 'pictures/woman-rack-clothes/top1.png')
         woman_top2 = PhotoImage(file = 'pictures/woman-rack-clothes/top2.png')
         woman_top3 = PhotoImage(file = 'pictures/woman-rack-clothes/top3.png')
         woman_top4 = PhotoImage(file = 'pictures/woman-rack-clothes/top4.png')
         woman_top5 = PhotoImage(file = 'pictures/woman-rack-clothes/top5.png')
         woman_top6 = PhotoImage(file = 'pictures/woman-rack-clothes/top6.png')
-        # woman_bot1 = PhotoImage(file = 'pictures/woman-rack-clothes/bot1.png')
-        # woman_bot2 = PhotoImage(file = 'pictures/woman-rack-clothes/bot2.png')
-        # woman_bot3 = PhotoImage(file = 'pictures/woman-rack-clothes/bot3.png')
-        # woman_bot4 = PhotoImage(file = 'pictures/woman-rack-clothes/bot4.png')
-        # woman_bot5 = PhotoImage(file = 'pictures/woman-rack-clothes/bot5.png')
-        # woman_bot6 = PhotoImage(file = 'pictures/woman-rack-clothes/bot6.png')
+        woman_bot1 = PhotoImage(file = 'pictures/woman-rack-clothes/bot1.png')
+        woman_bot2 = PhotoImage(file = 'pictures/woman-rack-clothes/bot2.png')
+        woman_bot3 = PhotoImage(file = 'pictures/woman-rack-clothes/bot3.png')
+        woman_bot4 = PhotoImage(file = 'pictures/woman-rack-clothes/bot4.png')
+        woman_bot5 = PhotoImage(file = 'pictures/woman-rack-clothes/bot5.png')
+        woman_bot6 = PhotoImage(file = 'pictures/woman-rack-clothes/bot6.png')
+
+        woman_socks1 = PhotoImage(file = 'pictures/woman-rack-clothes/socks1.png')
+        woman_socks2 = PhotoImage(file = 'pictures/woman-rack-clothes/socks2.png')
+
+        woman_pair1 = PhotoImage(file = 'pictures/woman-rack-clothes/pair1.png')
+        woman_pair2 = PhotoImage(file = 'pictures/woman-rack-clothes/pair2.png')
+        woman_pair3 = PhotoImage(file = 'pictures/woman-rack-clothes/pair3.png')
+        woman_pair4 = PhotoImage(file = 'pictures/woman-rack-clothes/pair4.png')
 
         woman_accesorie1 = PhotoImage(file = 'pictures/woman-rack-clothes/accesorie1.png')
         woman_accesorie2 = PhotoImage(file = 'pictures/woman-rack-clothes/accesorie2.png')
@@ -160,7 +198,7 @@ class Game:
         self.pantshanger = pantshanger
 
 
-# ---------------------------------------------------------------# WOMAN ------------------------------------------
+# ---------------------------------------------------------------# MAN ------------------------------------------
 
 
         self.man = man
@@ -187,6 +225,10 @@ class Game:
         self.on_man_pair3 = on_man_pair3
         self.on_man_pair4 = on_man_pair4
 
+        self.on_man_accesorie1 = on_man_accesorie1
+        self.on_man_accesorie2 = on_man_accesorie2
+        self.on_man_accesorie3 = on_man_accesorie3
+
         self.man_clothes = [on_man_top1,
                             on_man_top2,
                             on_man_top3,
@@ -205,9 +247,9 @@ class Game:
                             on_man_pair4,
                             on_man_socks1,
                             on_man_socks2,
-                            man_accesorie1,
-                            man_accesorie2,
-                            man_accesorie3]
+                            on_man_accesorie1,
+                            on_man_accesorie2,
+                            on_man_accesorie3]
         self.man_rack_clothes = [man_top1,
                             man_top2,
                             man_top3,
@@ -219,6 +261,7 @@ class Game:
                             man_bot3,
                             man_bot4,
                             man_bot5,
+                            man_bot6,
                             man_socks1,
                             man_socks2,
                             man_pair1,
@@ -257,7 +300,71 @@ class Game:
 
 # ---------------------------------------------------------------# WOMAN ------------------------------------------
         self.woman = woman
+       
+        self.on_woman_top1 = on_woman_top1
+        self.on_woman_top2 = on_woman_top2
+        self.on_woman_top3 = on_woman_top3
+        self.on_woman_top4 = on_woman_top4
+        self.on_woman_top5 = on_woman_top5
+        self.on_woman_top6 = on_woman_top6
 
+        self.on_woman_bot1 = on_woman_bot1
+        self.on_woman_bot2 = on_woman_bot2
+        self.on_woman_bot3 = on_woman_bot3
+        self.on_woman_bot4 = on_woman_bot4
+        self.on_woman_bot5 = on_woman_bot5
+        self.on_woman_bot6 = on_woman_bot6
+
+        self.on_woman_socks1 = on_woman_socks1
+        self.on_woman_socks2 = on_woman_socks2
+
+        self.on_woman_pair1 = on_woman_pair1
+        self.on_woman_pair2 = on_woman_pair2
+        self.on_woman_pair3 = on_woman_pair3
+        self.on_woman_pair4 = on_woman_pair4
+
+        self.woman_clothes = [on_woman_top1,
+                            on_woman_top2,
+                            on_woman_top3,
+                            on_woman_top4,
+                            on_woman_top5,
+                            on_woman_top6,
+                            on_woman_bot1,
+                            on_woman_bot2,
+                            on_woman_bot3,
+                            on_woman_bot4,
+                            on_woman_bot5,
+                            on_woman_bot6,
+                            on_woman_pair1,
+                            on_woman_pair2,
+                            on_woman_pair3,
+                            on_woman_pair4,
+                            on_woman_socks1,
+                            on_woman_socks2,
+                            on_woman_accesorie1,
+                            on_woman_accesorie2,
+                            on_woman_accesorie3]
+        self.woman_rack_clothes = [woman_top1,
+                            woman_top2,
+                            woman_top3,
+                            woman_top4,
+                            woman_top5,
+                            woman_top6,
+                            woman_bot1,
+                            woman_bot2,
+                            woman_bot3,
+                            woman_bot4,
+                            woman_bot5,
+                            woman_bot6,
+                            woman_socks1,
+                            woman_socks2,
+                            woman_pair1,
+                            woman_pair2,
+                            woman_pair3,
+                            woman_pair4,
+                            woman_accesorie1,
+                            woman_accesorie2,
+                            woman_accesorie3]
         self.woman_top1 = woman_top1
         self.woman_top2 = woman_top2
         self.woman_top3 = woman_top3
@@ -265,12 +372,20 @@ class Game:
         self.woman_top5 = woman_top5
         self.woman_top6 = woman_top6
 
-        # self.woman_bot1 = woman_bot1
-        # self.woman_bot2 = woman_bot2
-        # self.woman_bot3 = woman_bot3
-        # self.woman_bot4 = woman_bot4
-        # self.woman_bot5 = woman_bot5
-        # self.woman_bot6 = woman_bot6
+        self.woman_bot1 = woman_bot1
+        self.woman_bot2 = woman_bot2
+        self.woman_bot3 = woman_bot3
+        self.woman_bot4 = woman_bot4
+        self.woman_bot5 = woman_bot5
+        self.woman_bot6 = woman_bot6
+
+        self.woman_pair1 = woman_pair1
+        self.woman_pair2 = woman_pair2
+        self.woman_pair3 = woman_pair3
+        self.woman_pair4 = woman_pair4
+
+        self.woman_socks1 = woman_socks1
+        self.woman_socks2 = woman_socks2
 
         self.woman_accesorie1 = woman_accesorie1
         self.woman_accesorie2 = woman_accesorie2
@@ -376,19 +491,39 @@ class Game:
         if gender == 0:
             c.create_image(175, 291, image = self.woman)
 
-            accesorie3 = c.create_image(810, 240, image = self.woman_accesorie3, tags='drebe')
+            self.accesorie3 = c.create_image(810, 240, image = self.woman_accesorie3, tags='drebe')
 
-            # top1 = c.create_image(432, 142, image = self.woman_top1, tags='drebe')
-            # top2 = c.create_image(560, 153, image = self.woman_top2, tags='drebe')
-            # top3 = c.create_image(692, 163, image = self.woman_top3, tags='drebe')
-            top4 = c.create_image(429, 162, image = self.woman_top4, tags='drebe')
-            top5 = c.create_image(560, 153, image = self.woman_top5, tags='drebe')
-            top6 = c.create_image(692, 189, image = self.woman_top6, tags='drebe')
+            self.top1 = c.create_image(432, 142, image = self.woman_top1, tags='drebe')
+            self.top2 = c.create_image(560, 153, image = self.woman_top2, tags='drebe')
+            self.top3 = c.create_image(692, 163, image = self.woman_top3, tags='drebe')
+            self.top4 = c.create_image(429, 162, image = self.woman_top4, tags='drebe')
+            self.top5 = c.create_image(560, 153, image = self.woman_top5, tags='drebe')
+            self.top6 = c.create_image(692, 189, image = self.woman_top6, tags='drebe')
 
-            # bot1 = c.create_image(440, 137, image = self.woman_bot1, tags='drebe')
-            # bot2 = c.create_image(560, 153, image = self.woman_bot2, tags='drebe')
-            # bot3 = c.create_image(692, 159, image = self.woman_bot3, tags='drebe')
-            
+            c.move(self.top4, 1600, 1600)
+            c.move(self.top5, 1600, 1600)
+            c.move(self.top6, 1600, 1600)
+
+            self.bot1 = c.create_image(441, 399, image = self.woman_bot1, tags='drebe')
+            self.bot2 = c.create_image(573, 376, image = self.woman_bot2, tags='drebe')
+            self.bot3 = c.create_image(706, 352, image = self.woman_bot3, tags='drebe')
+            self.bot4 = c.create_image(444, 400, image = self.woman_bot4, tags='drebe')
+            self.bot5 = c.create_image(574, 392, image = self.woman_bot5, tags='drebe')
+            self.bot6 = c.create_image(703, 391, image = self.woman_bot6, tags='drebe')
+
+            c.move(self.bot4, 1600, 1600)
+            c.move(self.bot5, 1600, 1600)
+            c.move(self.bot6, 1600, 1600)
+
+            self.pair1 = c.create_image(463, 510, image = self.woman_pair1, tags='drebe')
+            self.pair2 = c.create_image(542, 505, image = self.woman_pair2, tags='drebe')
+            self.pair3 = c.create_image(625, 505, image = self.woman_pair3, tags='drebe')
+            self.pair4 = c.create_image(721, 505, image = self.woman_pair4, tags='drebe')
+
+            self.socks1 = c.create_image(815, 394, image = self.woman_socks1, tags='drebe')
+            self.socks2 = c.create_image(813, 475, image = self.woman_socks2, tags='drebe')
+
+            self.gender = 'woman'
             
         if gender == 1:
             c.create_image(190, 290, image = self.man)
@@ -421,7 +556,7 @@ class Game:
             c.move(self.bot5, 1600, 1600)
             c.move(self.bot6, 1600, 1600)
 
-            self.pair1 = c.create_image(460, 510, image = self.man_pair1, tags='drebe')
+            self.pair1 = c.create_image(463, 510, image = self.man_pair1, tags='drebe')
             self.pair2 = c.create_image(542, 505, image = self.man_pair2, tags='drebe')
             self.pair3 = c.create_image(625, 505, image = self.man_pair3, tags='drebe')
             self.pair4 = c.create_image(721, 505, image = self.man_pair4, tags='drebe')
@@ -506,7 +641,55 @@ class Game:
                     c.move(self.top6, 1600, 1600)
 
                     self.stage1 = 'first'
+        
                 
+                
+
+            if pakaramais == 2:
+                if self.stage2 == 'first':
+                    c.move(self.bot1, 1600, 1600)
+                    c.move(self.bot2, 1600, 1600)
+                    c.move(self.bot3, 1600, 1600)
+
+                    c.move(self.bot4, -1600, -1600)
+                    c.move(self.bot5, -1600, -1600)
+                    c.move(self.bot6, -1600, -1600)       
+                    self.stage2 = 'second'
+                else:
+
+                    c.move(self.bot1, -1600, -1600)
+                    c.move(self.bot2, -1600, -1600)
+                    c.move(self.bot3, -1600, -1600)
+
+                    c.move(self.bot4, 1600, 1600)
+                    c.move(self.bot5, 1600, 1600)
+                    c.move(self.bot6, 1600, 1600)
+                    self.stage2 = 'first'
+        if self.gender == 'woman':
+            if pakaramais == 1:
+                if self.stage1 == 'first':
+                    # c.delete('top')
+                    c.move(self.top1, 1600, 1600)
+                    c.move(self.top2, 1600, 1600)
+                    c.move(self.top3, 1600, 1600)
+
+                    c.move(self.top4, -1600, -1600)
+                    c.move(self.top5, -1600, -1600)
+                    c.move(self.top6, -1600, -1600)
+
+                    self.stage1 = 'second'
+                else:
+                    # c.delete('top')
+                    c.move(self.top1, -1600, -1600)
+                    c.move(self.top2, -1600, -1600)
+                    c.move(self.top3, -1600, -1600)
+
+                    c.move(self.top4, 1600, 1600)
+                    c.move(self.top5, 1600, 1600)
+                    c.move(self.top6, 1600, 1600)
+
+                    self.stage1 = 'first'
+        
                 
                 
 
@@ -630,74 +813,234 @@ class Game:
                 x_start, y_start =810, 240
             else:
                 return None
+            if pic<=5:
+                c.delete(self.last_top) #deletes last top outfit on
+                top_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='tops')  #creates image on rack - after will be on human
+                print(self.last_top_rack)
 
-
-        if pic<=5:
-            c.delete(self.last_top) #deletes last top outfit on
-            top_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='tops')  #creates image on rack - after will be on human
-            print(self.last_top_rack)
-
-            if self.last_top_rack != None:
-                c.move(self.last_top_rack, 800, 800) 
-            c.move(name, -800, -800)
-            self.last_top = top_on
-            self.last_top_rack = name  #array to create image after put back
-            print(self.last_top_rack)
-            mover = top_on #the image that has been placed will be moved on human
+                if self.last_top_rack != None:
+                    c.move(self.last_top_rack, 800, 800) 
+                c.move(name, -800, -800)
+                self.last_top = top_on
+                self.last_top_rack = name  #array to create image after put back
+                print(self.last_top_rack)
+                mover = top_on #the image that has been placed will be moved on human
 
             
-        elif pic<=11:
-            c.delete(self.last_bot) #deletes last bot outfit on
-            self.bot_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='bots')  #creates image on rack - after will be on human
-            print(self.last_bot_rack)
+            elif pic<=11:
+                c.delete(self.last_bot) #deletes last bot outfit on
+                self.bot_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='bots')  #creates image on rack - after will be on human
+                print(self.last_bot_rack)
 
-            if self.last_bot_rack != None:
-                c.move(self.last_bot_rack, 800, 800) 
+                if self.last_bot_rack != None:
+                    c.move(self.last_bot_rack, 800, 800) 
 
-            c.move(name, -800, -800)
-            self.last_bot = self.bot_on
-            self.last_bot_rack = name  #array to create image after put back
-            print(self.last_bot_rack)
-            mover = self.bot_on #the image that has been placed will be moved on human
+                c.move(name, -800, -800)
+                self.last_bot = self.bot_on
+                self.last_bot_rack = name  #array to create image after put back
+                print(self.last_bot_rack)
+                mover = self.bot_on #the image that has been placed will be moved on human
 
-        elif pic<=15:
-            c.delete(self.last_pair)
-            self.pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='shoe')
-            if self.last_pair_rack != None:
-                c.move(self.last_pair_rack, 800, 800)
-            c.move(name, -800, -800)
-            self.last_pair = self.pair_on
-            self.last_pair_rack = name
-            print(self.last_pair_rack)
-            mover = self.pair_on
-        elif pic<=17:
-            c.delete(self.last_sock)
-            sock_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='sock')
-          
-            if self.last_sock_rack != None:
-                c.move(self.last_sock_rack, 800, 800) 
+            elif pic<=15:
+                c.delete(self.last_pair)
+                self.pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='shoe')
+                if self.last_pair_rack != None:
+                    c.move(self.last_pair_rack, 800, 800)
+                c.move(name, -800, -800)
+                self.last_pair = self.pair_on
+                self.last_pair_rack = name
+                print(self.last_pair_rack)
+                mover = self.pair_on
+            elif pic<=17:
+                c.delete(self.last_sock)
+                sock_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='sock')
 
-            c.move(name, -800, -800)
-            self.last_sock = sock_on
-            self.last_sock_rack = name  #array to create image after put back
-            print(self.last_sock_rack)
+                if self.last_sock_rack != None:
+                    c.move(self.last_sock_rack, 800, 800) 
+
+                c.move(name, -800, -800)
+                self.last_sock = sock_on
+                self.last_sock_rack = name  #array to create image after put back
+                print(self.last_sock_rack)
+
+                mover = sock_on #the image that has been placed will be moved on human
+
+
+
+            elif pic <=20:
+                c.delete(self.last_accesorie)
+                accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='acc')
+
+                if self.last_accesorie_rack != None:
+                    c.move(self.last_accesorie_rack, 800, 800) 
+
+                c.move(name, -800, -800)
+
+                self.last_accesorie = accesorie_on
+                self.last_accesorie_rack = name
+                mover = accesorie_on
+        if self.gender=='woman':
+            if pic == 0:
+                x=179
+                y=190
+                x_start = 422
+                y_start = 132          
+            elif pic == 1:
+                x=176
+                y=196
+                x_start, y_start = 560, 153
+
+            elif pic == 2:
+                x=177
+                y=207
+                x_start, y_start = 692, 163
+            elif pic == 3:
+                x=178
+                y=220
+                x_start, y_start = 429, 162
+            elif pic == 4:
+                x=178
+                y=182
+                x_start, y_start =560, 153
+            elif pic == 5:
+                x=177
+                y=266
+                x_start, y_start = 692, 189
+
+
+
+            elif pic == 6:
+                x=180
+                y=360
+                x_start, y_start = 441, 399
+            elif pic == 7:
+                x=177
+                y=306
+                x_start, y_start = 573, 376
+            elif pic == 8:
+                x=176
+                y=273
+                x_start, y_start = 706, 352
+            elif pic == 9:
+                x=196
+                y=357
+                x_start, y_start = 444, 400
+            elif pic == 10:
+                x=178
+                y=358
+                x_start, y_start = 574, 392
+            elif pic == 11:
+                x=174
+                y=360
+                x_start, y_start = 703, 391
             
-            mover = sock_on #the image that has been placed will be moved on human
-
-
+            elif pic == 12:
+                x=172
+                y=503
+                x_start, y_start =463, 510
+            elif pic == 13:
+                x=185
+                y=520
+                x_start, y_start =542, 505
+            elif pic == 14:
+                x=185
+                y=517
+                x_start, y_start =625, 505
+            elif pic == 15:
+                x=190
+                y=518
+                x_start, y_start =721, 505
+            elif pic == 16:
+                x=186
+                y=497
+                x_start, y_start =815, 394
+            elif pic == 17:
+                x=185
+                y=503
+                x_start, y_start =813, 475
         
-        elif pic <=20:
-            c.delete(self.last_accesorie)
-            accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='acc')
+            elif pic == 18:
+                x=184 
+                y=66
+                x_start, y_start =808, 146
+            elif pic == 19:
+                x=188
+                y=66
+                x_start, y_start =806, 195
+            elif pic == 20:
+                x=187
+                y=96
+                x_start, y_start =810, 240
+            else:
+                return None
 
-            if self.last_accesorie_rack != None:
-                c.move(self.last_accesorie_rack, 800, 800) 
 
-            c.move(name, -800, -800)
+            if pic<=5:
+                c.delete(self.last_top) #deletes last top outfit on
+                top_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='tops')  #creates image on rack - after will be on human
+                print(self.last_top_rack)
 
-            self.last_accesorie = accesorie_on
-            self.last_accesorie_rack = name
-            mover = accesorie_on
+                if self.last_top_rack != None:
+                    c.move(self.last_top_rack, 800, 800) 
+                c.move(name, -800, -800)
+                self.last_top = top_on
+                self.last_top_rack = name  #array to create image after put back
+                print(self.last_top_rack)
+                mover = top_on #the image that has been placed will be moved on human
+
+
+            elif pic<=11:
+                c.delete(self.last_bot) #deletes last bot outfit on
+                self.bot_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='bots')  #creates image on rack - after will be on human
+                print(self.last_bot_rack)
+
+                if self.last_bot_rack != None:
+                    c.move(self.last_bot_rack, 800, 800) 
+
+                c.move(name, -800, -800)
+                self.last_bot = self.bot_on
+                self.last_bot_rack = name  #array to create image after put back
+                print(self.last_bot_rack)
+                mover = self.bot_on #the image that has been placed will be moved on human
+
+            elif pic<=15:
+                c.delete(self.last_pair)
+                self.pair_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='shoe')
+                if self.last_pair_rack != None:
+                    c.move(self.last_pair_rack, 800, 800)
+                c.move(name, -800, -800)
+                self.last_pair = self.pair_on
+                self.last_pair_rack = name
+                print(self.last_pair_rack)
+                mover = self.pair_on
+            elif pic<=17:
+                c.delete(self.last_sock)
+                sock_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='sock')
+
+                if self.last_sock_rack != None:
+                    c.move(self.last_sock_rack, 800, 800) 
+
+                c.move(name, -800, -800)
+                self.last_sock = sock_on
+                self.last_sock_rack = name  #array to create image after put back
+                print(self.last_sock_rack)
+
+                mover = sock_on #the image that has been placed will be moved on human
+
+
+
+            elif pic <=20:
+                c.delete(self.last_accesorie)
+                accesorie_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='acc')
+
+                if self.last_accesorie_rack != None:
+                    c.move(self.last_accesorie_rack, 800, 800) 
+
+                c.move(name, -800, -800)
+
+                self.last_accesorie = accesorie_on
+                self.last_accesorie_rack = name
+                mover = accesorie_on
     
 
         xx = (x-x_start)/100
