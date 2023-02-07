@@ -929,32 +929,32 @@ class Game:
                 y=499
                 x_start, y_start =542, 505
             elif pic == 14:
-                x=185
-                y=517
+                x=174
+                y=500
                 x_start, y_start =625, 505
             elif pic == 15:
                 x=175
                 y=505
                 x_start, y_start =721, 505
             elif pic == 16:
-                x=186
-                y=497
+                x=177
+                y=376
                 x_start, y_start =815, 394
             elif pic == 17:
-                x=185
-                y=503
+                x=180
+                y=424
                 x_start, y_start =813, 475
         
             elif pic == 18:
-                x=184 
-                y=66
+                x=171
+                y=74
                 x_start, y_start =808, 146
             elif pic == 19:
-                x=188
-                y=66
+                x=175
+                y=74
                 x_start, y_start =806, 195
             elif pic == 20:
-                x=187
+                x=177
                 y=96
                 x_start, y_start =810, 240
             else:
