@@ -11,7 +11,6 @@ c = Canvas(logs, width=PLATUMS, height=GARUMS, bg='#4b6fa6')
 c.pack()
 
 
-
 # MAN ON CLOTHES---------------------------------------------------
 
 
@@ -32,6 +31,8 @@ class Game:
         self.socks_on = None
         self.pair_on = None
         self.accesorie_on = None
+
+        self.heels = None
 
         bg_start = PhotoImage(file = 'pictures/bg/home-bg.png')
         bg_choose = PhotoImage(file = 'pictures/bg/choose-lvl.png')
@@ -744,13 +745,17 @@ class Game:
                     self.stage2 = 'first'
 
     def back(self,witch, mover, light, x_start, y_start, x, y): 
-        print('irr')
         if witch == 1: 
             c.delete(self.last_accesorie)
+            self.accesorie_on = None
             self.last_accesorie = None
             self.last_accesorie_rack = None
         else:
+            if self.heels == 'leggings':
+                self.pair_on = c.create_image( x_start, y_start, image = self.woman_clothes[21], tags='shoe')
             c.delete(self.last_socks)
+            self.heels = None
+            self.socks_on = None
             self.last_socks = None
             self.last_socks_rack = None
 
@@ -1005,12 +1010,21 @@ class Game:
             if self.gender == 'man':
                 self.pair_on = c.create_image( x_start, y_start, image = self.man_clothes[pic], tags='shoe')
             else:
-                self.pair_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='shoe')
+                self.heels = None
                 if pic==14:
-                    if len(self.lists)>=1:
-                        self.pair_on = c.create_image( x_start, y_start, image = self.woman_clothes[22], tags='shoe')
+                    if self.socks_on != None:
+                        if self.socks_on == 1:
+                            self.pair_on = c.create_image( x_start, y_start, image = self.woman_clothes[22], tags='shoe')
+                            self.heels = 'leggings'
+                        else:
+                            self.pair_on = c.create_image( x_start, y_start, image = self.woman_clothes[14], tags='shoe')
+                            
                     else:
                         self.pair_on = c.create_image( x_start, y_start, image = self.woman_clothes[21], tags='shoe')
+                        self.heels = 'socks'
+                else:
+                    self.pair_on = c.create_image( x_start, y_start, image = self.woman_clothes[pic], tags='shoe')
+
             if self.last_pair_rack != None:
                 c.move(self.last_pair_rack, 800, 800)
             c.move(name, -800, -800)
@@ -1095,7 +1109,7 @@ class Game:
         self.gatavs_pogaa.destroy()
 
         self.fons = c.create_image(432,279, image = self.bg_result)
-
+        print(self.pair_on)
         self.atbilde = []
         if self.gender == 'man':
             self.result = 0
