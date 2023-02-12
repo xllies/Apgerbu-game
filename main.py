@@ -1223,23 +1223,24 @@ class Game:
 
             
             if self.theme == 'beach':
+                if self.gender == 'man':
 
                     if self.bot_on == 1 or self.bot_on == 2:
     
                         self.atbilde.append('Džinsas piemērotas īsti pludmalei!')
                         self.result += 19
 
-                    elif self.bot_on == 5 or self.bot_on == 5:
+                    elif self.bot_on == 5 or self.bot_on == 6 or self.bot_on == 4:
     
                         self.atbilde.append('Uzvilktās bikses ir par svinīgu!')
                         self.result += 9
 
-                    elif self.bot_on == 3 or self.bot_on == 4:
+                    elif self.bot_on == 3:
                         self.result += 30
 
 
 
-                    if self.top_on == 1 or self.top_on == 2:
+                    if self.top_on == 1 or self.top_on == 3:
                         self.result += 30
 
                     elif self.top_on == 4 or self.top_on == 5:
@@ -1266,6 +1267,54 @@ class Game:
                     else:
                         self.result+=5
                         self.atbilde.append('Uz pludmali jāuzvelk cepure vai saulesbrilles!')
+                else:
+                    if self.bot_on == 1 or self.bot_on == 4:
+    
+                        self.atbilde.append('Džinsas nav piemērotas īsti pludmalei!')
+                        self.result += 19
+
+                    elif self.bot_on == 6:
+    
+                        self.atbilde.append('Uzvilktās bikses ir par svinīgu!')
+                        self.result += 9
+                    elif self.bot_on == 5:
+    
+                        self.atbilde.append('treniņ biksēs būs pārāk karsti!')
+                        self.result += 15
+
+                    elif self.bot_on == 3 or self.bot_on == 2:
+                        self.result += 30
+
+
+
+                    if self.top_on == 4 or self.top_on == 5 or self.top_on == 6:
+                        self.result += 30
+
+                    elif self.top_on == 1 or self.top_on == 2:
+                        self.result += 10
+                        self.atbilde.append('Augšā nav jāvelk kautkas tik svinīgs!')
+
+                    elif self.top_on == 3:
+                        self.atbilde.append('Džemperī pludmalē būtu par karstu!')
+                        self.result += 15
+
+
+                    if self.pair_on == 1 or self.pair_on == 2:
+                        self.result += 30
+                    elif self.pair_on == 3:
+                        self.atbilde.append('Šīs kurpes ir par svinīgu pludmalei!')
+                        self.result += 5
+                    else:
+                        self.atbilde.append('Labāk uz pludmali vilkt čības!')
+                        self.result += 25
+
+
+                    if self.accesorie_on == None:
+                        pass
+                    else:
+                        self.result+=5
+                        self.atbilde.append('Uz pludmali jāuzvelk cepure vai saulesbrilles!')
+                    
 
         print('RESULTS')
         print(self.atbilde)
